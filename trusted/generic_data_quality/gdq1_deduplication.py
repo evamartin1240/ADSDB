@@ -41,7 +41,6 @@ def deduplication(in_file_name, out_file_name, ignore_column=None, filter_condit
   return df_deduplicated
 
 if __name__ == "__main__":
-    # Example usage
     in_file_name = input("Enter the path of the CSV file to deduplicate: ")
     out_file_name = input("Enter the output file name (including .csv): ")
 
