@@ -29,6 +29,11 @@ def clean_date_format(df, date_column):
 
   # Apply the validation and conversion function to the date column
   df[date_column] = df[date_column].apply(is_valid_date)
+  
+  # Replace any date greater than the 2034 date with NaN
+  df[date_column] = pd.to_datetime(df[date_column], errors='coerce', format='%d-%m-%Y')
+  df.loc[df[date_column] > pd.Timestamp('2034-12-31'), date_column] = np.nan
+
   return df
 
 """## Time
@@ -76,6 +81,9 @@ def clean_location_format(df, location_column):
 
     # Apply the split_location function and create new columns
     df[['city', 'country']] = df[location_column].apply(lambda x: pd.Series(split_location(x)))
+
+    # Eliminate location column
+    df = df.drop(columns=['location'])
 
     return df
 
@@ -156,6 +164,8 @@ def process_price_range(price_range):
 def clean_price_range_format(df, price_column):
   # Apply the process_price_range function and split the result into two columns
   df[['min_price_EUR', 'max_price_EUR']] = df[price_column].apply(lambda x: pd.Series(process_price_range(x)))
+  # Eliminate price_range column
+  df = df.drop(columns=[price_column])
   return df
 
 if __name__ == "__main__":
