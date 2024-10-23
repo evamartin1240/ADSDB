@@ -5,12 +5,15 @@
 ```bash
 $ python /landing/ticketmaster_data_ingestion.py
 ```
-
+```bash
 Please enter the path of the input .txt file with the artist names: /data/artist_names_subset.txt
 Please enter the path to the temporal directory where you want to store the JSON file: /landing/temporal
 How do you want to name the output JSON file? Remember to specify the file version (e.g., ticketmaster_dataV1.json): ticketmaster_dataV1.json
 Please enter your TicketMaster API key: SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR
 Ticketmaster data has been saved to /landing/temporal/ticketmaster_dataV1.json
-
+```
+```bash
+Ticketmaster data has been saved to /landing/temporal/ticketmaster_dataV1.json
+```
 
 
