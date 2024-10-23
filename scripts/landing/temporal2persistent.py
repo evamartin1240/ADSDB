@@ -2,7 +2,6 @@ from datetime import datetime
 import time
 import shutil
 import os
-import psutil
 
 """# Temporal landing to Persisten landing
 Take the data files for Spotify and Ticketmaster in the temporal landing and moves them to the persistent landing applying the necessary transformations.
