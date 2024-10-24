@@ -20,25 +20,25 @@ def convert_json_to_csv(json_file_path, csv_file_path):
     df.to_csv(csv_file_path, index=False)
     print(f'CSV file saved: {csv_file_path}')
 
-def landing2formatted(persistent_landing_dir, formatted_dir):
+def landing2formatted(persdir_in, formdir_out):
     """ Function to iterate over JSON files in the persistent directory,
         convert them to CSV, and save in the formatted directory.
     """
 
-    if not os.path.exists(formatted_dir): # If the formatted directory doesn't exist, create it
-       os.makedirs(formatted_dir)
+    if not os.path.exists(formdir_out): # If the formatted directory doesn't exist, create it
+       os.makedirs(formdir_out)
 
     # Iterate over all the files in the persistent directory to change the format from JSON to CSV
-    for root, dirs, files in os.walk(persistent_landing_dir):
+    for root, dirs, files in os.walk(persdir_in):
         for file in files:
             if file.endswith('.json'):  # Only process .json files
                 json_file_path = os.path.join(root, file)
                 csv_file_name = file.replace('.json', '.csv')
-                csv_file_path = os.path.join(formatted_dir, csv_file_name)
+                csv_file_path = os.path.join(formdir_out, csv_file_name)
                 convert_json_to_csv(json_file_path, csv_file_path)
 
 if __name__ == "__main__":
-    persistent_landing_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/persistent' # Persistent landing directory
-    formatted_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/formatted' # Formatted directory
-    landing2formatted(persistent_landing_dir, formatted_dir)
+    persdir_in = input("Persistent landing directory path (input): ")
+    formdir_out = input("Formatted landing directory path (output): ")
 
+    landing2formatted(persdir_in, formdir_out)

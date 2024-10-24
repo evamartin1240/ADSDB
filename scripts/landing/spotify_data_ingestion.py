@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     temporal_dir = input("Path to temporal landing directory: ")
     
-    out_filename = input("Output .json file name (specify the file version): ").strip()
+    out_filename = input("Output .json file name: ").strip()
 
     client_id = input("Spotify client id: ") 
     client_secret = input("Spotify client secret: ")

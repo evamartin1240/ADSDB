@@ -1,6 +1,6 @@
 # ADSDB <a href="https://github.com/evamartin1240/ADSDB"><img src="others/spotify.png" align="right" height="25" /></a> <a href="https://github.com/evamartin1240/ADSDB"><img src="others/ticketmaster.png" align="right" height="20" /></a>
 
-## Step 1: Data Ingestion
+## Step 1: Temporal Landing Zone
 
 When running the data ingestion scripts for both TicketMaster and Spotify sources,
 you will be prompted for specific input details. You will need to provide the
@@ -30,10 +30,16 @@ $ python scripts/landing/spotify_data_ingestion.py
 
 <img src="others/salida.gif">
 
-## Step 2: From temporal to persistent landing
+## Step 2: Persistent Landing Zone
 
 ```bash
 $ python scripts/landing/temporal2persistent.py
 ```
 
 <img src="others/salida.gif">
+
+## Step 3: Formatted Zone
+
+```bash
+$ python scripts/landing/landing2formatted.py
+```
