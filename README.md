@@ -22,3 +22,18 @@ $ python scripts/landing/ticketmaster_data_ingestion.py
 
 <img src="others/salida.gif">
 
+**Spotify:**
+
+```bash
+$ python scripts/landing/spotify_data_ingestion.py
+```
+
+<img src="others/salida.gif">
+
+## Step 2: From temporal to persistent landing
+
+```bash
+$ python scripts/landing/temporal2persistent.py
+```
+
+<img src="others/salida.gif">
