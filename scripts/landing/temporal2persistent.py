@@ -36,7 +36,10 @@ def temporal2persistent(tempdir_in, persistdir_out, version):
             print(f"Moved {tempdir_in}/{filename_in} to {output_path}")
 
 if __name__ == "__main__":
-    tempdir_in = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/temporal'
-    persistdir_out = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/persistent'
+    tempdir_in = input("Temporal landing directory path (input): ")
+    persistdir_out = input("Persistent landing directory path (output): ")
     temporal2persistent(tempdir_in, persistdir_out, 'V1')
+
+    # tempdir_in = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/temporal'
+    # persistdir_out = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/persistent'
 
