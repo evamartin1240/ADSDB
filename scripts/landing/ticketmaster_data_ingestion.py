@@ -64,7 +64,7 @@ def ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key):
                     all_artist_events.append(event_data)
         else:
             pass
-            print(f"{time.time()}: Ticketmaster response unsuccessful for artist \"{artist_name}\"")
+            # print(f"{time.time()}: Ticketmaster response unsuccessful for artist \"{artist_name}\"")
           
     # Save the results to a JSON file
     if not os.path.exists(temporal_dir): # If the temporal_directory path doesn't exist, create it
@@ -83,14 +83,14 @@ if __name__ == "__main__":
 
     temporal_dir = input("Path to temporal landing directory: ")
     
-    out_filename = input("Output JSON file name (specify the file version): ").strip()
+    out_filename = input("Output .json file name (specify the file version): ").strip()
 
     api_key = input("TicketMaster API key: ") 
     
-    print("Ticketmaster data has been saved to data/landing/temporal/ticketmaster_dataV1.json")
     ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key)
 
-    # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/artist_names_subset.txt'
+    # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
     # temporal_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/temporal'
     # out_filename = 'ticketmaster_dataV1.json'
     # api_key = 'SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR'
+    # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif

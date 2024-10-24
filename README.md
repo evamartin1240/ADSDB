@@ -7,8 +7,8 @@ you will be prompted for specific input details. You will need to provide the
 following:
 
 1. The path to the input `.txt` file containing artist names
-2. The path to the temporal directory where the output JSON file will be stored
-3. The name of the output JSON file including a version number
+2. The path to the temporal directory where the output `.json` file will be stored
+3. The name of the output `.json` file including a version number
 4. Your TicketMaster/Spotify API key.
 
 Once all inputs are provided, the script will save the data and confirm the
@@ -19,8 +19,6 @@ location of the saved JSON file.
 ```bash
 $ python scripts/landing/ticketmaster_data_ingestion.py
 ```
-
-![Description of the image](others/ticket_ingestion.png)
 
 <img src="others/salida.gif">
 
