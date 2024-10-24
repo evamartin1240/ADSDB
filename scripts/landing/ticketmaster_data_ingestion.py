@@ -77,16 +77,20 @@ def ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key):
 
 if __name__ == "__main__":
     artist_names_file = input("Artist names to retrieve (.txt file): ")
-    with open(artist_names_file, 'r') as file: # '/Users/evamartin/Desktop/MDS/curs1/ADSDB/artist_names_subset.txt'
+    with open(artist_names_file, 'r') as file: 
         artist_names = [line.strip() for line in file]
     artist_names = ['Black Pumas', "Haze"] 
 
     temporal_dir = input("Path to temporal landing directory: ")
-    # '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/temporal'
     
-    out_filename = input("Output JSON file name (specify the file version)): ").strip()
+    out_filename = input("Output JSON file name (specify the file version): ").strip()
 
-    api_key = input("TicketMaster API key: ") # 'SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR'
+    api_key = input("TicketMaster API key: ") 
     
     print("Ticketmaster data has been saved to data/landing/temporal/ticketmaster_dataV1.json")
     ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key)
+
+    # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/artist_names_subset.txt'
+    # temporal_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/landing/temporal'
+    # out_filename = 'ticketmaster_dataV1.json'
+    # api_key = 'SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR'
