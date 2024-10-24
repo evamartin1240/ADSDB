@@ -12,5 +12,5 @@ $ python scripts/landing/ticketmaster_data_ingestion.py
 
 ![Description of the image](others/ticket_ingestion.png)
 
-
+<img src="others/salida.png">
 
