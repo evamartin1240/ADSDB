@@ -34,7 +34,7 @@ def get_headers_spotify(client_id, client_secret):
 Something.
 """
 
-def ingest_spotify_data(temporal_dir, out_filename, artist_names, client_id, client_secret):
+def ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, client_secret):
     """ Function that retrieves data from Spotify API.
     """
     headers = get_headers_spotify(client_id, client_secret)
@@ -61,9 +61,9 @@ def ingest_spotify_data(temporal_dir, out_filename, artist_names, client_id, cli
                 print(f"{time.time()}: Spotify response unsuccessful for artist \"{artist_name}\"")
 
     # Save the results to a JSON file
-    if not os.path.exists(temporal_dir): # If the path to the temporal directory doesn't exist, create it
-        os.makedirs(temporal_dir)
-    output_path = os.path.join(temporal_dir, out_filename)
+    if not os.path.exists(raw_data_path): # If the path to the temporal directory doesn't exist, create it
+        os.makedirs(raw_data_path)
+    output_path = os.path.join(raw_data_path, out_filename)
     with open(output_path, 'w') as json_file:
         json.dump(artist_info, json_file, indent=4)
 
@@ -75,17 +75,17 @@ if __name__ == "__main__":
         artist_names = [line.strip() for line in file]
     artist_names = ['Black Pumas', "Haze"] 
 
-    temporal_dir = input("Path to temporal landing directory: ")
+    raw_data_path = input("Path to store the ingested raw data files: ")
     
     out_filename = input("Output .json file name: ").strip()
 
     client_id = input("Spotify client id: ") 
     client_secret = input("Spotify client secret: ")
     
-    ingest_spotify_data(temporal_dir, out_filename, artist_names, client_id, client_secret)
+    ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, client_secret)
 
     # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
-    # temporal_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/landing/temporal'
+    # raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'
     # out_filename = 'spotify_dataV1.json'
     # Keys for the Spotify API: client_id = '62f9499b009c49d8b6363890028ce155', client_secret = '8b1ec143c4d94ea6aa3920b3b8bf2ee6'
     # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif

@@ -40,7 +40,7 @@ def extract_event_info(artist, event):
 
     return event_info
 
-def ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key):
+def ingest_ticketmaster_data(raw_data_path, out_filename, artist_names, api_key):
     """ Function that retrieves data from TicketMaster API.
     """
 
@@ -67,9 +67,9 @@ def ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key):
             # print(f"{time.time()}: Ticketmaster response unsuccessful for artist \"{artist_name}\"")
           
     # Save the results to a JSON file
-    if not os.path.exists(temporal_dir): # If the temporal_directory path doesn't exist, create it
-        os.makedirs(temporal_dir)
-    output_path = os.path.join(temporal_dir, out_filename)
+    if not os.path.exists(raw_data_path): # If the raw_data_path path doesn't exist, create it
+        os.makedirs(raw_data_path)
+    output_path = os.path.join(raw_data_path, out_filename)
     with open(output_path, 'w') as json_file:
         json.dump(all_artist_events, json_file, indent=4)
 
@@ -81,16 +81,16 @@ if __name__ == "__main__":
         artist_names = [line.strip() for line in file]
     artist_names = ['Black Pumas', "Haze"] 
 
-    temporal_dir = input("Path to temporal landing directory: ")
+    raw_data_path = input("Path to store the ingested raw data files: ")
     
     out_filename = input("Output .json file name: ").strip()
 
     api_key = input("TicketMaster API key: ") 
     
-    ingest_ticketmaster_data(temporal_dir, out_filename, artist_names, api_key)
+    ingest_ticketmaster_data(raw_data_path, out_filename, artist_names, api_key)
 
     # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
-    # temporal_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/landing/temporal'
+    # raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'
     # out_filename = 'ticketmaster_dataV1.json'
     # api_key = 'SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR'
     # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif

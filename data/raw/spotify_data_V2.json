@@ -1,8 +1,12 @@
 [
     {
         "artist": "Haze",
-        "genres": [],
-        "followers": 76301,
+        "genres": [
+            "latin pop",
+            "trap latino",
+            "urbano latino"
+        ],
+        "followers": 76424,
         "popularity": 72
     },
     {
@@ -14,7 +18,7 @@
             "rap",
             "trap"
         ],
-        "followers": 15348626,
+        "followers": 15399466,
         "popularity": 87
     },
     {
@@ -22,7 +26,7 @@
         "genres": [
             "retro soul"
         ],
-        "followers": 1057351,
+        "followers": 1060349,
         "popularity": 64
     },
     {
@@ -30,13 +34,13 @@
         "genres": [
             "movie tunes"
         ],
-        "followers": 816,
+        "followers": 817,
         "popularity": 33
     },
     {
         "artist": "Triana",
         "genres": [],
-        "followers": 225,
+        "followers": 229,
         "popularity": 32
     },
     {
@@ -47,7 +51,7 @@
             "rap",
             "trap"
         ],
-        "followers": 18679330,
+        "followers": 18737907,
         "popularity": 87
     },
     {
@@ -57,7 +61,7 @@
             "r&b",
             "rap"
         ],
-        "followers": 23537466,
+        "followers": 23703730,
         "popularity": 90
     },
     {
@@ -65,7 +69,7 @@
         "genres": [
             "melodic house"
         ],
-        "followers": 199038,
+        "followers": 204813,
         "popularity": 77
     },
     {
@@ -77,8 +81,8 @@
             "hip hop",
             "rap"
         ],
-        "followers": 10794906,
-        "popularity": 79
+        "followers": 10851733,
+        "popularity": 80
     },
     {
         "artist": "Takuya Kuroda",
@@ -87,7 +91,7 @@
             "indie jazz",
             "japanese jazz"
         ],
-        "followers": 128192,
+        "followers": 128483,
         "popularity": 41
     },
     {
@@ -97,7 +101,7 @@
             "pop",
             "post-teen pop"
         ],
-        "followers": 1824587,
+        "followers": 1826183,
         "popularity": 76
     },
     {
@@ -108,7 +112,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 7977928,
+        "followers": 8003419,
         "popularity": 81
     },
     {
@@ -118,8 +122,8 @@
             "italian pop",
             "trap italiana"
         ],
-        "followers": 3879992,
-        "popularity": 74
+        "followers": 3887922,
+        "popularity": 75
     },
     {
         "artist": "Roger Miller",
@@ -128,14 +132,14 @@
             "classic oklahoma country",
             "nashville sound"
         ],
-        "followers": 276099,
+        "followers": 276544,
         "popularity": 54
     },
     {
         "artist": "Luvcat",
         "genres": [],
-        "followers": 66267,
-        "popularity": 53
+        "followers": 70580,
+        "popularity": 54
     },
     {
         "artist": "Noah Kahan",
@@ -143,7 +147,7 @@
             "pov: indie",
             "singer-songwriter pop"
         ],
-        "followers": 3441548,
+        "followers": 3466929,
         "popularity": 87
     },
     {
@@ -153,7 +157,7 @@
             "rumba",
             "spanish pop"
         ],
-        "followers": 2092273,
+        "followers": 2099222,
         "popularity": 71
     },
     {
@@ -161,7 +165,7 @@
         "genres": [
             "singer-songwriter pop"
         ],
-        "followers": 3692919,
+        "followers": 3744199,
         "popularity": 86
     },
     {
@@ -172,7 +176,7 @@
             "pop edm",
             "uk dance"
         ],
-        "followers": 263828,
+        "followers": 264447,
         "popularity": 76
     },
     {
@@ -180,7 +184,7 @@
         "genres": [
             "spanish new wave"
         ],
-        "followers": 35129,
+        "followers": 35204,
         "popularity": 37
     },
     {
@@ -192,7 +196,7 @@
             "rap metal",
             "rock"
         ],
-        "followers": 27071086,
+        "followers": 27172860,
         "popularity": 92
     },
     {
@@ -203,8 +207,8 @@
             "rock en espanol",
             "rock uruguayo"
         ],
-        "followers": 2350906,
-        "popularity": 70
+        "followers": 2356400,
+        "popularity": 71
     },
     {
         "artist": "*NSYNC",
@@ -213,7 +217,7 @@
             "dance pop",
             "pop"
         ],
-        "followers": 2652765,
+        "followers": 2671666,
         "popularity": 78
     },
     {
@@ -222,7 +226,7 @@
             "reggaeton",
             "urbano latino"
         ],
-        "followers": 7716760,
+        "followers": 7729344,
         "popularity": 77
     },
     {
@@ -236,14 +240,14 @@
             "rock",
             "symphonic rock"
         ],
-        "followers": 20941008,
+        "followers": 20977028,
         "popularity": 80
     },
     {
         "artist": "Max McNown",
         "genres": [],
-        "followers": 213824,
-        "popularity": 68
+        "followers": 236743,
+        "popularity": 69
     },
     {
         "artist": "Christina Aguilera",
@@ -251,7 +255,7 @@
             "dance pop",
             "pop"
         ],
-        "followers": 8505642,
+        "followers": 8523503,
         "popularity": 79
     },
     {
@@ -259,7 +263,7 @@
         "genres": [
             "italian pop"
         ],
-        "followers": 455240,
+        "followers": 459615,
         "popularity": 67
     },
     {
@@ -269,7 +273,7 @@
             "rap",
             "trap"
         ],
-        "followers": 9853440,
+        "followers": 9879383,
         "popularity": 82
     },
     {
@@ -277,8 +281,8 @@
         "genres": [
             "new york drill"
         ],
-        "followers": 234717,
-        "popularity": 70
+        "followers": 240577,
+        "popularity": 72
     },
     {
         "artist": "d4vd",
@@ -286,8 +290,8 @@
             "bedroom pop",
             "bedroom r&b"
         ],
-        "followers": 2989648,
-        "popularity": 79
+        "followers": 3017126,
+        "popularity": 80
     },
     {
         "artist": "Ralphie Choo",
@@ -295,7 +299,7 @@
             "indie r&b",
             "urbano espanol"
         ],
-        "followers": 67766,
+        "followers": 69728,
         "popularity": 63
     },
     {
@@ -304,8 +308,8 @@
             "italian hip hop",
             "italian pop"
         ],
-        "followers": 2590552,
-        "popularity": 75
+        "followers": 2597003,
+        "popularity": 76
     },
     {
         "artist": "Walls of Jericho",
@@ -313,7 +317,7 @@
             "groove metal",
             "melodic metalcore"
         ],
-        "followers": 113002,
+        "followers": 113362,
         "popularity": 34
     },
     {
@@ -326,20 +330,20 @@
             "rock independant francais",
             "shimmer pop"
         ],
-        "followers": 1941449,
-        "popularity": 68
+        "followers": 1942825,
+        "popularity": 69
     },
     {
         "artist": "Fridayy",
         "genres": [],
-        "followers": 244243,
+        "followers": 249827,
         "popularity": 67
     },
     {
         "artist": "D-Event",
         "genres": [],
         "followers": 119,
-        "popularity": 12
+        "popularity": 11
     },
     {
         "artist": "Daft Punk",
@@ -348,7 +352,7 @@
             "filter house",
             "rock"
         ],
-        "followers": 10180954,
+        "followers": 10198301,
         "popularity": 82
     },
     {
@@ -360,13 +364,13 @@
             "rock en espanol",
             "spanish rock"
         ],
-        "followers": 4470254,
+        "followers": 4483935,
         "popularity": 73
     },
     {
         "artist": "Lennox",
         "genres": [],
-        "followers": 22621,
+        "followers": 23752,
         "popularity": 56
     },
     {
@@ -376,7 +380,7 @@
             "sad sierreno",
             "sierreno"
         ],
-        "followers": 6413488,
+        "followers": 6469083,
         "popularity": 86
     },
     {
@@ -387,7 +391,7 @@
             "permanent wave",
             "soft rock"
         ],
-        "followers": 2847900,
+        "followers": 2858051,
         "popularity": 73
     },
     {
@@ -396,8 +400,8 @@
             "australian rock",
             "permanent wave"
         ],
-        "followers": 873841,
-        "popularity": 70
+        "followers": 879780,
+        "popularity": 71
     },
     {
         "artist": "Bruno Mars",
@@ -405,7 +409,7 @@
             "dance pop",
             "pop"
         ],
-        "followers": 60003606,
+        "followers": 60439231,
         "popularity": 94
     },
     {
@@ -413,8 +417,8 @@
         "genres": [
             "turkish singer-songwriter"
         ],
-        "followers": 307348,
-        "popularity": 67
+        "followers": 318561,
+        "popularity": 68
     },
     {
         "artist": "Fuerza Regida",
@@ -424,7 +428,7 @@
             "sad sierreno",
             "sierreno"
         ],
-        "followers": 11716582,
+        "followers": 11841078,
         "popularity": 89
     },
     {
@@ -434,7 +438,7 @@
             "east coast hip hop",
             "golden age hip hop"
         ],
-        "followers": 235505,
+        "followers": 235817,
         "popularity": 42
     },
     {
@@ -442,7 +446,7 @@
         "genres": [
             "rap"
         ],
-        "followers": 9364070,
+        "followers": 9419007,
         "popularity": 90
     },
     {
@@ -455,7 +459,7 @@
             "hip hop",
             "political hip hop"
         ],
-        "followers": 977132,
+        "followers": 978659,
         "popularity": 62
     },
     {
@@ -466,8 +470,8 @@
             "instrumental grime",
             "uk hip hop"
         ],
-        "followers": 1355582,
-        "popularity": 73
+        "followers": 1361935,
+        "popularity": 74
     },
     {
         "artist": "Lady Gaga",
@@ -476,8 +480,8 @@
             "dance pop",
             "pop"
         ],
-        "followers": 31956338,
-        "popularity": 91
+        "followers": 32120416,
+        "popularity": 92
     },
     {
         "artist": "Kenia OS",
@@ -485,7 +489,7 @@
             "latin viral pop",
             "urbano mexicano"
         ],
-        "followers": 5471881,
+        "followers": 5501954,
         "popularity": 76
     },
     {
@@ -494,7 +498,7 @@
             "east coast hip hop",
             "hardcore hip hop"
         ],
-        "followers": 196532,
+        "followers": 196908,
         "popularity": 44
     },
     {
@@ -505,8 +509,8 @@
             "north carolina hip hop",
             "rap"
         ],
-        "followers": 24672169,
-        "popularity": 86
+        "followers": 24746817,
+        "popularity": 87
     },
     {
         "artist": "Nazan \u00d6ncel",
@@ -515,7 +519,7 @@
             "turkish pop",
             "turkish singer-songwriter"
         ],
-        "followers": 648279,
+        "followers": 653711,
         "popularity": 61
     },
     {
@@ -528,7 +532,7 @@
             "southern hip hop",
             "trap"
         ],
-        "followers": 7361101,
+        "followers": 7370543,
         "popularity": 77
     },
     {
@@ -541,8 +545,8 @@
             "tropical",
             "urbano latino"
         ],
-        "followers": 8837387,
-        "popularity": 81
+        "followers": 8879548,
+        "popularity": 82
     },
     {
         "artist": "John Maus",
@@ -554,7 +558,7 @@
             "hypnagogic pop",
             "noise pop"
         ],
-        "followers": 215251,
+        "followers": 215811,
         "popularity": 49
     },
     {
@@ -562,7 +566,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 13411940,
+        "followers": 13764628,
         "popularity": 95
     },
     {
@@ -572,13 +576,13 @@
             "saxophone house",
             "tropical house"
         ],
-        "followers": 8054,
+        "followers": 8074,
         "popularity": 55
     },
     {
         "artist": "Artemas",
         "genres": [],
-        "followers": 949595,
+        "followers": 959846,
         "popularity": 80
     },
     {
@@ -586,13 +590,13 @@
         "genres": [
             "spanish indie pop"
         ],
-        "followers": 67113,
+        "followers": 67266,
         "popularity": 48
     },
     {
         "artist": "j\u00fcle.",
         "genres": [],
-        "followers": 2842,
+        "followers": 2843,
         "popularity": 49
     },
     {
@@ -600,7 +604,7 @@
         "genres": [
             "pop urbaine"
         ],
-        "followers": 87267,
+        "followers": 89166,
         "popularity": 68
     },
     {
@@ -609,7 +613,7 @@
             "italian adult pop",
             "italian pop"
         ],
-        "followers": 3609344,
+        "followers": 3617625,
         "popularity": 72
     },
     {
@@ -619,21 +623,21 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 71661,
-        "popularity": 67
+        "followers": 73815,
+        "popularity": 66
     },
     {
         "artist": "sombr",
         "genres": [],
-        "followers": 183630,
-        "popularity": 63
+        "followers": 186817,
+        "popularity": 64
     },
     {
         "artist": "HUGEL",
         "genres": [
             "deep house"
         ],
-        "followers": 337471,
+        "followers": 342878,
         "popularity": 77
     },
     {
@@ -642,7 +646,7 @@
             "k-pop",
             "k-pop boy group"
         ],
-        "followers": 2135919,
+        "followers": 2137236,
         "popularity": 56
     },
     {
@@ -652,7 +656,7 @@
             "east coast hip hop",
             "hardcore hip hop"
         ],
-        "followers": 565965,
+        "followers": 566440,
         "popularity": 53
     },
     {
@@ -661,8 +665,8 @@
             "turkish alt pop",
             "turkish rock"
         ],
-        "followers": 368546,
-        "popularity": 60
+        "followers": 369406,
+        "popularity": 62
     },
     {
         "artist": "Franglish",
@@ -671,7 +675,7 @@
             "pop urbaine",
             "r&b francais"
         ],
-        "followers": 1518752,
+        "followers": 1528620,
         "popularity": 70
     },
     {
@@ -679,16 +683,16 @@
         "genres": [
             "trap argentino"
         ],
-        "followers": 625399,
-        "popularity": 74
+        "followers": 634620,
+        "popularity": 75
     },
     {
         "artist": "Caleb Calloway",
         "genres": [
             "urbano latino"
         ],
-        "followers": 22000,
-        "popularity": 57
+        "followers": 22150,
+        "popularity": 59
     },
     {
         "artist": "Pixies",
@@ -698,7 +702,7 @@
             "permanent wave",
             "rock"
         ],
-        "followers": 3100018,
+        "followers": 3111111,
         "popularity": 72
     },
     {
@@ -706,8 +710,8 @@
         "genres": [
             "trap brasileiro"
         ],
-        "followers": 2396042,
-        "popularity": 77
+        "followers": 2415404,
+        "popularity": 76
     },
     {
         "artist": "Los Rodriguez",
@@ -716,7 +720,7 @@
             "latin alternative",
             "rock en espanol"
         ],
-        "followers": 717782,
+        "followers": 718877,
         "popularity": 61
     },
     {
@@ -724,8 +728,8 @@
         "genres": [
             "uk pop"
         ],
-        "followers": 246767,
-        "popularity": 61
+        "followers": 255056,
+        "popularity": 62
     },
     {
         "artist": "Chencho Corleone",
@@ -735,13 +739,13 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 1179171,
+        "followers": 1202993,
         "popularity": 80
     },
     {
         "artist": "Dee C. Lee",
         "genres": [],
-        "followers": 3691,
+        "followers": 3726,
         "popularity": 27
     },
     {
@@ -751,7 +755,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 5167466,
+        "followers": 5191462,
         "popularity": 82
     },
     {
@@ -760,7 +764,7 @@
             "reggaeton",
             "urbano latino"
         ],
-        "followers": 4427887,
+        "followers": 4427446,
         "popularity": 72
     },
     {
@@ -769,8 +773,8 @@
             "bow pop",
             "pop violin"
         ],
-        "followers": 498321,
-        "popularity": 53
+        "followers": 499178,
+        "popularity": 54
     },
     {
         "artist": "girl in red",
@@ -780,8 +784,8 @@
             "norwegian indie",
             "pov: indie"
         ],
-        "followers": 7553123,
-        "popularity": 77
+        "followers": 7591174,
+        "popularity": 78
     },
     {
         "artist": "The Mar\u00edas",
@@ -789,7 +793,7 @@
             "bedroom pop",
             "la indie"
         ],
-        "followers": 1533956,
+        "followers": 1560952,
         "popularity": 77
     },
     {
@@ -797,7 +801,7 @@
         "genres": [
             "indie pop"
         ],
-        "followers": 3420086,
+        "followers": 3534996,
         "popularity": 90
     },
     {
@@ -810,7 +814,7 @@
             "urbano espanol",
             "urbano latino"
         ],
-        "followers": 1805508,
+        "followers": 1813395,
         "popularity": 75
     },
     {
@@ -825,7 +829,7 @@
             "south carolina hip hop",
             "urban contemporary"
         ],
-        "followers": 12200632,
+        "followers": 12242700,
         "popularity": 83
     },
     {
@@ -836,7 +840,7 @@
             "pop soul",
             "uk pop"
         ],
-        "followers": 59223975,
+        "followers": 59436644,
         "popularity": 88
     },
     {
@@ -850,7 +854,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 6015586,
+        "followers": 6054052,
         "popularity": 85
     },
     {
@@ -862,7 +866,7 @@
             "pop dance",
             "progressive electro house"
         ],
-        "followers": 1161706,
+        "followers": 1164119,
         "popularity": 65
     },
     {
@@ -870,8 +874,8 @@
         "genres": [
             "indonesian indie"
         ],
-        "followers": 731566,
-        "popularity": 67
+        "followers": 745559,
+        "popularity": 68
     },
     {
         "artist": "Sebastian Yatra",
@@ -882,7 +886,7 @@
             "reggaeton colombiano",
             "urbano latino"
         ],
-        "followers": 23127822,
+        "followers": 23156699,
         "popularity": 80
     },
     {
@@ -890,7 +894,7 @@
         "genres": [
             "alternative r&b"
         ],
-        "followers": 586645,
+        "followers": 597612,
         "popularity": 73
     },
     {
@@ -901,7 +905,7 @@
             "pop",
             "rap"
         ],
-        "followers": 45512268,
+        "followers": 45573720,
         "popularity": 92
     },
     {
@@ -913,7 +917,7 @@
             "southern hip hop",
             "trap"
         ],
-        "followers": 18822013,
+        "followers": 18908068,
         "popularity": 93
     },
     {
@@ -922,7 +926,7 @@
             "cantautor",
             "spanish indie pop"
         ],
-        "followers": 250193,
+        "followers": 250520,
         "popularity": 53
     },
     {
@@ -930,7 +934,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 32924302,
+        "followers": 32962024,
         "popularity": 84
     },
     {
@@ -938,7 +942,7 @@
         "genres": [
             "pop argentino"
         ],
-        "followers": 3603744,
+        "followers": 3646592,
         "popularity": 81
     },
     {
@@ -950,7 +954,7 @@
             "trap triste",
             "urbano latino"
         ],
-        "followers": 5735803,
+        "followers": 5750555,
         "popularity": 78
     },
     {
@@ -961,7 +965,7 @@
             "r&b",
             "urban contemporary"
         ],
-        "followers": 3186731,
+        "followers": 3195612,
         "popularity": 72
     },
     {
@@ -971,8 +975,8 @@
             "indie catala",
             "rock catala"
         ],
-        "followers": 50779,
-        "popularity": 48
+        "followers": 51015,
+        "popularity": 49
     },
     {
         "artist": "Burna Boy",
@@ -982,7 +986,7 @@
             "nigerian hip hop",
             "nigerian pop"
         ],
-        "followers": 10289144,
+        "followers": 10357885,
         "popularity": 81
     },
     {
@@ -998,15 +1002,15 @@
             "neo-synthpop",
             "new rave"
         ],
-        "followers": 1342918,
-        "popularity": 67
+        "followers": 1348311,
+        "popularity": 68
     },
     {
         "artist": "InI",
         "genres": [
             "jazz rap"
         ],
-        "followers": 9756,
+        "followers": 9822,
         "popularity": 48
     },
     {
@@ -1018,7 +1022,7 @@
             "pop dance",
             "progressive house"
         ],
-        "followers": 15074614,
+        "followers": 15078947,
         "popularity": 76
     },
     {
@@ -1027,7 +1031,7 @@
             "latin hip hop",
             "reggaeton"
         ],
-        "followers": 1019159,
+        "followers": 1019477,
         "popularity": 60
     },
     {
@@ -1038,13 +1042,13 @@
             "pop dance",
             "tropical house"
         ],
-        "followers": 8461852,
+        "followers": 8467849,
         "popularity": 82
     },
     {
         "artist": "Samura\u00ef",
         "genres": [],
-        "followers": 55622,
+        "followers": 56128,
         "popularity": 59
     },
     {
@@ -1055,8 +1059,8 @@
             "rumba",
             "spanish pop"
         ],
-        "followers": 1248326,
-        "popularity": 63
+        "followers": 1251062,
+        "popularity": 64
     },
     {
         "artist": "Vance Joy",
@@ -1064,7 +1068,7 @@
             "folk-pop",
             "modern rock"
         ],
-        "followers": 3169702,
+        "followers": 3175585,
         "popularity": 77
     },
     {
@@ -1076,7 +1080,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 38146155,
+        "followers": 38291510,
         "popularity": 88
     },
     {
@@ -1084,7 +1088,7 @@
         "genres": [
             "afrobeats"
         ],
-        "followers": 3685293,
+        "followers": 3721946,
         "popularity": 79
     },
     {
@@ -1092,7 +1096,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 7075347,
+        "followers": 7114883,
         "popularity": 75
     },
     {
@@ -1101,7 +1105,7 @@
             "cali rap",
             "pop rap"
         ],
-        "followers": 2243020,
+        "followers": 2243963,
         "popularity": 71
     },
     {
@@ -1114,7 +1118,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 14127130,
+        "followers": 14254481,
         "popularity": 92
     },
     {
@@ -1123,7 +1127,7 @@
             "french hip hop",
             "pop urbaine"
         ],
-        "followers": 2345961,
+        "followers": 2369496,
         "popularity": 79
     },
     {
@@ -1133,7 +1137,7 @@
             "canadian pop",
             "pop"
         ],
-        "followers": 92351724,
+        "followers": 92821145,
         "popularity": 96
     },
     {
@@ -1141,15 +1145,15 @@
         "genres": [
             "florida rap"
         ],
-        "followers": 7849822,
-        "popularity": 79
+        "followers": 7906077,
+        "popularity": 82
     },
     {
         "artist": "Hi-Tech",
         "genres": [
             "golden age hip hop"
         ],
-        "followers": 7787,
+        "followers": 7809,
         "popularity": 32
     },
     {
@@ -1162,21 +1166,24 @@
             "rap",
             "west coast rap"
         ],
-        "followers": 12634148,
+        "followers": 12699059,
         "popularity": 84
     },
     {
-        "artist": "Jazzy Skye",
-        "genres": [],
-        "followers": 31832,
-        "popularity": 38
+        "artist": "Jazzy",
+        "genres": [
+            "pop dance",
+            "uk dance"
+        ],
+        "followers": 77976,
+        "popularity": 69
     },
     {
         "artist": "IONA",
         "genres": [
             "lo-fi jazzhop"
         ],
-        "followers": 822,
+        "followers": 803,
         "popularity": 43
     },
     {
@@ -1185,7 +1192,7 @@
             "pop",
             "r&b"
         ],
-        "followers": 38706073,
+        "followers": 38758702,
         "popularity": 87
     },
     {
@@ -1194,16 +1201,17 @@
             "spanish pop",
             "spanish pop rock"
         ],
-        "followers": 920025,
+        "followers": 921567,
         "popularity": 62
     },
     {
-        "artist": "H\u00e9ctor \"El Father\"",
+        "artist": "H\u00e9ctor Lavoe",
         "genres": [
-            "reggaeton",
-            "urbano latino"
+            "salsa",
+            "salsa puertorriquena",
+            "tropical"
         ],
-        "followers": 835791,
+        "followers": 2089265,
         "popularity": 67
     },
     {
@@ -1214,7 +1222,7 @@
             "pop rock",
             "post-grunge"
         ],
-        "followers": 2925517,
+        "followers": 2939489,
         "popularity": 76
     },
     {
@@ -1222,7 +1230,7 @@
         "genres": [
             "argentine rock"
         ],
-        "followers": 863197,
+        "followers": 872716,
         "popularity": 69
     },
     {
@@ -1236,7 +1244,7 @@
             "singer-songwriter",
             "soft rock"
         ],
-        "followers": 6312751,
+        "followers": 6336781,
         "popularity": 79
     },
     {
@@ -1249,7 +1257,7 @@
             "finnish metal",
             "melodic death metal"
         ],
-        "followers": 147466,
+        "followers": 148104,
         "popularity": 43
     },
     {
@@ -1258,13 +1266,13 @@
             "pop argentino",
             "urbano latino"
         ],
-        "followers": 7043819,
+        "followers": 7083233,
         "popularity": 82
     },
     {
         "artist": "Mike Tucker",
         "genres": [],
-        "followers": 306,
+        "followers": 308,
         "popularity": 12
     },
     {
@@ -1273,13 +1281,13 @@
             "jovem guarda",
             "mpb"
         ],
-        "followers": 5992940,
+        "followers": 6014790,
         "popularity": 71
     },
     {
         "artist": "Andr\u00e9s Koi",
         "genres": [],
-        "followers": 6485,
+        "followers": 6538,
         "popularity": 33
     },
     {
@@ -1288,8 +1296,8 @@
             "pop",
             "reggae fusion"
         ],
-        "followers": 1355010,
-        "popularity": 69
+        "followers": 1363551,
+        "popularity": 70
     },
     {
         "artist": "Nas",
@@ -1302,7 +1310,7 @@
             "queens hip hop",
             "rap"
         ],
-        "followers": 3909724,
+        "followers": 3920343,
         "popularity": 74
     },
     {
@@ -1310,7 +1318,7 @@
         "genres": [
             "alternative r&b"
         ],
-        "followers": 8194727,
+        "followers": 8250483,
         "popularity": 82
     },
     {
@@ -1319,7 +1327,7 @@
             "flamenco urbano",
             "urbano espanol"
         ],
-        "followers": 809225,
+        "followers": 818424,
         "popularity": 74
     },
     {
@@ -1328,7 +1336,7 @@
             "lo-fi chill",
             "sad lo-fi"
         ],
-        "followers": 106107,
+        "followers": 108178,
         "popularity": 57
     },
     {
@@ -1338,7 +1346,7 @@
             "hip hop",
             "rap"
         ],
-        "followers": 20236976,
+        "followers": 20318872,
         "popularity": 89
     },
     {
@@ -1349,8 +1357,8 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 35148320,
-        "popularity": 87
+        "followers": 35222759,
+        "popularity": 88
     },
     {
         "artist": "Tyler, The Creator",
@@ -1358,16 +1366,16 @@
             "hip hop",
             "rap"
         ],
-        "followers": 16468272,
-        "popularity": 86
+        "followers": 16596279,
+        "popularity": 87
     },
     {
         "artist": "aespa",
         "genres": [
             "k-pop girl group"
         ],
-        "followers": 6577017,
-        "popularity": 80
+        "followers": 6689704,
+        "popularity": 81
     },
     {
         "artist": "Black Sheep",
@@ -1375,7 +1383,7 @@
             "east coast hip hop",
             "queens hip hop"
         ],
-        "followers": 235781,
+        "followers": 236079,
         "popularity": 44
     },
     {
@@ -1383,7 +1391,7 @@
         "genres": [
             "east coast hip hop"
         ],
-        "followers": 924238,
+        "followers": 926508,
         "popularity": 59
     },
     {
@@ -1392,7 +1400,7 @@
             "contemporary country",
             "country"
         ],
-        "followers": 1200297,
+        "followers": 1202868,
         "popularity": 70
     },
     {
@@ -1403,25 +1411,24 @@
             "pop soul",
             "urban contemporary"
         ],
-        "followers": 7056037,
+        "followers": 7093247,
         "popularity": 77
     },
     {
-        "artist": "Eric B. & Rakim",
+        "artist": "Berliner Philharmoniker",
         "genres": [
-            "bboy",
-            "east coast hip hop",
-            "golden age hip hop",
-            "hip hop",
-            "old school hip hop"
+            "classical",
+            "classical performance",
+            "german orchestra",
+            "orchestra"
         ],
-        "followers": 688896,
-        "popularity": 53
+        "followers": 224773,
+        "popularity": 74
     },
     {
         "artist": "ARCO",
         "genres": [],
-        "followers": 298,
+        "followers": 305,
         "popularity": 8
     },
     {
@@ -1429,15 +1436,15 @@
         "genres": [
             "cloud rap"
         ],
-        "followers": 111160,
-        "popularity": 64
+        "followers": 117677,
+        "popularity": 65
     },
     {
         "artist": "Pink Martini",
         "genres": [
             "lounge"
         ],
-        "followers": 413471,
+        "followers": 414266,
         "popularity": 59
     },
     {
@@ -1449,8 +1456,8 @@
             "pop",
             "uk pop"
         ],
-        "followers": 4197493,
-        "popularity": 88
+        "followers": 4280724,
+        "popularity": 90
     },
     {
         "artist": "Naughty By Nature",
@@ -1459,7 +1466,7 @@
             "hip hop",
             "new jersey rap"
         ],
-        "followers": 1181875,
+        "followers": 1184720,
         "popularity": 61
     },
     {
@@ -1468,13 +1475,13 @@
             "dance pop",
             "pop"
         ],
-        "followers": 14578122,
+        "followers": 14609084,
         "popularity": 83
     },
     {
         "artist": "Carbonne",
         "genres": [],
-        "followers": 150994,
+        "followers": 154686,
         "popularity": 65
     },
     {
@@ -1482,7 +1489,7 @@
         "genres": [
             "nyc rap"
         ],
-        "followers": 172437,
+        "followers": 173007,
         "popularity": 58
     },
     {
@@ -1493,7 +1500,7 @@
             "hip hop",
             "jazz rap"
         ],
-        "followers": 1040247,
+        "followers": 1042027,
         "popularity": 61
     },
     {
@@ -1506,8 +1513,8 @@
             "oakland hip hop",
             "west coast rap"
         ],
-        "followers": 1583210,
-        "popularity": 63
+        "followers": 1585009,
+        "popularity": 64
     },
     {
         "artist": "C4C",
@@ -1515,8 +1522,8 @@
             "chillhop",
             "lo-fi beats"
         ],
-        "followers": 12797,
-        "popularity": 51
+        "followers": 12809,
+        "popularity": 52
     },
     {
         "artist": "Regard",
@@ -1526,14 +1533,14 @@
             "slap house",
             "uk dance"
         ],
-        "followers": 260974,
+        "followers": 261537,
         "popularity": 69
     },
     {
         "artist": "KARINA",
         "genres": [],
-        "followers": 198549,
-        "popularity": 42
+        "followers": 230543,
+        "popularity": 45
     },
     {
         "artist": "Coldplay",
@@ -1541,7 +1548,7 @@
             "permanent wave",
             "pop"
         ],
-        "followers": 53890376,
+        "followers": 54081709,
         "popularity": 92
     },
     {
@@ -1549,7 +1556,7 @@
         "genres": [
             "spanish pop"
         ],
-        "followers": 945548,
+        "followers": 949371,
         "popularity": 70
     },
     {
@@ -1562,7 +1569,7 @@
             "southern hip hop",
             "trap"
         ],
-        "followers": 8099720,
+        "followers": 8105981,
         "popularity": 76
     },
     {
@@ -1574,7 +1581,7 @@
             "indietronica",
             "shimmer pop"
         ],
-        "followers": 1062743,
+        "followers": 1063738,
         "popularity": 58
     },
     {
@@ -1589,7 +1596,7 @@
             "shoegaze",
             "slacker rock"
         ],
-        "followers": 549797,
+        "followers": 550815,
         "popularity": 52
     },
     {
@@ -1598,7 +1605,7 @@
             "reggae fusion",
             "virgin islands reggae"
         ],
-        "followers": 170062,
+        "followers": 171628,
         "popularity": 63
     },
     {
@@ -1606,7 +1613,7 @@
         "genres": [
             "australian pop"
         ],
-        "followers": 114972,
+        "followers": 115267,
         "popularity": 63
     },
     {
@@ -1616,7 +1623,7 @@
             "french hip hop",
             "pop urbaine"
         ],
-        "followers": 1090369,
+        "followers": 1092722,
         "popularity": 63
     },
     {
@@ -1625,21 +1632,24 @@
             "r&b",
             "uk contemporary r&b"
         ],
-        "followers": 3477744,
+        "followers": 3482026,
         "popularity": 74
     },
     {
-        "artist": "Rosendo Cant\u00fa Y Sus Comandantes De China",
-        "genres": [],
-        "followers": 3523,
-        "popularity": 23
+        "artist": "Rosendo Cant\u00fa",
+        "genres": [
+            "musica neoleonesa",
+            "norteno"
+        ],
+        "followers": 23274,
+        "popularity": 47
     },
     {
         "artist": "Nile Rodgers",
         "genres": [
             "disco"
         ],
-        "followers": 150083,
+        "followers": 150819,
         "popularity": 74
     },
     {
@@ -1647,7 +1657,7 @@
         "genres": [
             "palestinian pop"
         ],
-        "followers": 215206,
+        "followers": 218367,
         "popularity": 72
     },
     {
@@ -1655,7 +1665,7 @@
         "genres": [
             "scandipop"
         ],
-        "followers": 28358,
+        "followers": 28471,
         "popularity": 61
     },
     {
@@ -1663,18 +1673,16 @@
         "genres": [
             "french pop"
         ],
-        "followers": 968415,
+        "followers": 969090,
         "popularity": 64
     },
     {
-        "artist": "DCS",
+        "artist": "DVSR",
         "genres": [
-            "dominican pop",
-            "electro bailando",
-            "electro latino"
+            "rap metal"
         ],
-        "followers": 61509,
-        "popularity": 45
+        "followers": 27134,
+        "popularity": 28
     },
     {
         "artist": "La Frontera",
@@ -1682,7 +1690,7 @@
             "spanish new wave",
             "spanish pop"
         ],
-        "followers": 95466,
+        "followers": 95648,
         "popularity": 43
     },
     {
@@ -1692,7 +1700,7 @@
             "spanish hip hop",
             "urbano espanol"
         ],
-        "followers": 63320,
+        "followers": 63352,
         "popularity": 47
     },
     {
@@ -1705,8 +1713,8 @@
             "hip hop",
             "west coast rap"
         ],
-        "followers": 2100315,
-        "popularity": 67
+        "followers": 2105284,
+        "popularity": 68
     },
     {
         "artist": "Dua Lipa",
@@ -1715,13 +1723,13 @@
             "pop",
             "uk pop"
         ],
-        "followers": 44795715,
+        "followers": 44842885,
         "popularity": 88
     },
     {
         "artist": "Ramos.",
         "genres": [],
-        "followers": 12105,
+        "followers": 13452,
         "popularity": 58
     },
     {
@@ -1733,7 +1741,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 7683360,
+        "followers": 7752569,
         "popularity": 81
     },
     {
@@ -1745,7 +1753,7 @@
             "jazz rap",
             "psychedelic hip hop"
         ],
-        "followers": 439598,
+        "followers": 440404,
         "popularity": 53
     },
     {
@@ -1755,7 +1763,7 @@
             "pop",
             "rock"
         ],
-        "followers": 54802787,
+        "followers": 54895738,
         "popularity": 89
     },
     {
@@ -1766,7 +1774,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 3669952,
+        "followers": 3681007,
         "popularity": 79
     },
     {
@@ -1778,7 +1786,7 @@
             "rage rap",
             "rap"
         ],
-        "followers": 11894760,
+        "followers": 11969427,
         "popularity": 90
     },
     {
@@ -1788,7 +1796,7 @@
             "instrumental hip hop",
             "jazz rap"
         ],
-        "followers": 359954,
+        "followers": 360645,
         "popularity": 55
     },
     {
@@ -1797,7 +1805,7 @@
             "cubaton",
             "reparto"
         ],
-        "followers": 199703,
+        "followers": 200284,
         "popularity": 58
     },
     {
@@ -1807,7 +1815,7 @@
             "pop rock",
             "rock"
         ],
-        "followers": 4548141,
+        "followers": 4566527,
         "popularity": 78
     },
     {
@@ -1817,7 +1825,7 @@
             "singer-songwriter pop",
             "uk pop"
         ],
-        "followers": 116408993,
+        "followers": 116583260,
         "popularity": 89
     },
     {
@@ -1826,15 +1834,15 @@
             "compositional ambient",
             "french soundtrack"
         ],
-        "followers": 1051001,
-        "popularity": 66
+        "followers": 1052596,
+        "popularity": 67
     },
     {
         "artist": "Slow J",
         "genres": [
             "hip hop tuga"
         ],
-        "followers": 232771,
+        "followers": 233839,
         "popularity": 59
     },
     {
@@ -1844,40 +1852,37 @@
             "funk carioca",
             "funk mtg"
         ],
-        "followers": 1535050,
+        "followers": 1539371,
         "popularity": 70
     },
     {
-        "artist": "Olly Murs",
+        "artist": "Olly Alexander (Years & Years)",
         "genres": [
             "dance pop",
+            "gauze pop",
             "pop",
-            "talent show",
+            "pop dance",
             "uk pop"
         ],
-        "followers": 3206191,
-        "popularity": 66
+        "followers": 1973858,
+        "popularity": 69
     },
     {
         "artist": "Myles Smith",
         "genres": [
             "singer-songwriter pop"
         ],
-        "followers": 736021,
+        "followers": 751678,
         "popularity": 79
     },
     {
-        "artist": "Parliament",
+        "artist": "Parliament Funkadelic",
         "genres": [
             "afrofuturism",
-            "classic soul",
-            "funk",
-            "funk rock",
-            "p funk",
-            "soul"
+            "p funk"
         ],
-        "followers": 799721,
-        "popularity": 51
+        "followers": 31075,
+        "popularity": 44
     },
     {
         "artist": "Myke Towers",
@@ -1886,7 +1891,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 16677086,
+        "followers": 16788680,
         "popularity": 89
     },
     {
@@ -1895,8 +1900,8 @@
             "r&b",
             "urban contemporary"
         ],
-        "followers": 5294396,
-        "popularity": 80
+        "followers": 5314340,
+        "popularity": 81
     },
     {
         "artist": "Nelly",
@@ -1909,7 +1914,7 @@
             "st louis rap",
             "urban contemporary"
         ],
-        "followers": 3047076,
+        "followers": 3062442,
         "popularity": 76
     },
     {
@@ -1920,7 +1925,7 @@
             "pop",
             "pov: indie"
         ],
-        "followers": 7913308,
+        "followers": 7942780,
         "popularity": 87
     },
     {
@@ -1930,8 +1935,8 @@
             "hip hop",
             "rap"
         ],
-        "followers": 13383851,
-        "popularity": 82
+        "followers": 13413601,
+        "popularity": 81
     },
     {
         "artist": "M\u00e4go de Oz",
@@ -1943,7 +1948,7 @@
             "spanish folk metal",
             "spanish metal"
         ],
-        "followers": 4348414,
+        "followers": 4361266,
         "popularity": 70
     },
     {
@@ -1954,7 +1959,7 @@
             "french indietronica",
             "french psychedelic"
         ],
-        "followers": 121113,
+        "followers": 121399,
         "popularity": 53
     },
     {
@@ -1964,8 +1969,8 @@
             "pop urbaine",
             "rap marseille"
         ],
-        "followers": 2342191,
-        "popularity": 73
+        "followers": 2349837,
+        "popularity": 72
     },
     {
         "artist": "Wisin & Yandel",
@@ -1975,13 +1980,13 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 7753869,
+        "followers": 7781958,
         "popularity": 80
     },
     {
         "artist": "BM",
         "genres": [],
-        "followers": 83064,
+        "followers": 83388,
         "popularity": 42
     },
     {
@@ -1992,7 +1997,7 @@
             "hip hop",
             "jazz rap"
         ],
-        "followers": 334226,
+        "followers": 335065,
         "popularity": 55
     },
     {
@@ -2002,7 +2007,7 @@
             "latin pop",
             "mexican pop"
         ],
-        "followers": 11139356,
+        "followers": 11155462,
         "popularity": 79
     },
     {
@@ -2012,7 +2017,7 @@
             "pop urbaine",
             "rap francais"
         ],
-        "followers": 588694,
+        "followers": 588798,
         "popularity": 53
     },
     {
@@ -2023,7 +2028,7 @@
             "canadian pop",
             "pop"
         ],
-        "followers": 3733408,
+        "followers": 3750970,
         "popularity": 74
     },
     {
@@ -2035,7 +2040,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 12673239,
+        "followers": 12734991,
         "popularity": 84
     },
     {
@@ -2043,7 +2048,7 @@
         "genres": [
             "shimmer pop"
         ],
-        "followers": 351558,
+        "followers": 351845,
         "popularity": 51
     },
     {
@@ -2051,8 +2056,8 @@
         "genres": [
             "neo-classical"
         ],
-        "followers": 49328,
-        "popularity": 44
+        "followers": 49529,
+        "popularity": 45
     },
     {
         "artist": "Lacrim",
@@ -2061,8 +2066,8 @@
             "french hip hop",
             "pop urbaine"
         ],
-        "followers": 2563049,
-        "popularity": 71
+        "followers": 2574585,
+        "popularity": 72
     },
     {
         "artist": "Shakira",
@@ -2072,7 +2077,7 @@
             "latin pop",
             "pop"
         ],
-        "followers": 34828695,
+        "followers": 34949657,
         "popularity": 88
     },
     {
@@ -2088,7 +2093,7 @@
             "rap",
             "urban contemporary"
         ],
-        "followers": 1933510,
+        "followers": 1938544,
         "popularity": 70
     },
     {
@@ -2099,7 +2104,7 @@
             "modern rock",
             "rock"
         ],
-        "followers": 3843913,
+        "followers": 3850563,
         "popularity": 75
     },
     {
@@ -2108,7 +2113,7 @@
             "pop",
             "uk pop"
         ],
-        "followers": 24372250,
+        "followers": 24439181,
         "popularity": 84
     },
     {
@@ -2116,7 +2121,7 @@
         "genres": [
             "gangster rap"
         ],
-        "followers": 314969,
+        "followers": 316500,
         "popularity": 67
     },
     {
@@ -2124,22 +2129,22 @@
         "genres": [
             "alt z"
         ],
-        "followers": 2619653,
-        "popularity": 85
+        "followers": 2717004,
+        "popularity": 86
     },
     {
         "artist": "Alex Margo",
         "genres": [],
-        "followers": 1461,
-        "popularity": 31
+        "followers": 1458,
+        "popularity": 32
     },
     {
-        "artist": "Baby Queen",
+        "artist": "Dove Cameron",
         "genres": [
-            "modern alternative pop"
+            "pop"
         ],
-        "followers": 130295,
-        "popularity": 51
+        "followers": 5219858,
+        "popularity": 73
     },
     {
         "artist": "Stevie Wonder",
@@ -2147,7 +2152,7 @@
             "motown",
             "soul"
         ],
-        "followers": 6609190,
+        "followers": 6621450,
         "popularity": 76
     },
     {
@@ -2155,13 +2160,13 @@
         "genres": [
             "reggaeton"
         ],
-        "followers": 360294,
+        "followers": 362741,
         "popularity": 65
     },
     {
         "artist": "Bradley Simpson",
         "genres": [],
-        "followers": 24960,
+        "followers": 25191,
         "popularity": 40
     },
     {
@@ -2171,8 +2176,8 @@
             "lo-fi jazzhop",
             "lo-fi study"
         ],
-        "followers": 5060,
-        "popularity": 54
+        "followers": 5047,
+        "popularity": 55
     },
     {
         "artist": "Skillibeng",
@@ -2182,7 +2187,7 @@
             "traphall",
             "trinibad"
         ],
-        "followers": 413974,
+        "followers": 415776,
         "popularity": 66
     },
     {
@@ -2191,7 +2196,7 @@
             "drill espanol",
             "urbano espanol"
         ],
-        "followers": 3534774,
+        "followers": 3556117,
         "popularity": 80
     },
     {
@@ -2199,8 +2204,8 @@
         "genres": [
             "indie r&b"
         ],
-        "followers": 46346,
-        "popularity": 55
+        "followers": 46996,
+        "popularity": 56
     },
     {
         "artist": "The Killers",
@@ -2211,7 +2216,7 @@
             "permanent wave",
             "rock"
         ],
-        "followers": 7494388,
+        "followers": 7507142,
         "popularity": 79
     },
     {
@@ -2219,7 +2224,7 @@
         "genres": [
             "latin talent show"
         ],
-        "followers": 49097,
+        "followers": 49172,
         "popularity": 46
     },
     {
@@ -2227,7 +2232,7 @@
         "genres": [
             "chill r&b"
         ],
-        "followers": 3735572,
+        "followers": 3749147,
         "popularity": 79
     },
     {
@@ -2239,7 +2244,7 @@
             "ranchera",
             "tropical"
         ],
-        "followers": 7759876,
+        "followers": 7778818,
         "popularity": 79
     },
     {
@@ -2248,7 +2253,7 @@
             "lo-fi jazzhop",
             "lo-fi study"
         ],
-        "followers": 16156,
+        "followers": 16217,
         "popularity": 55
     },
     {
@@ -2257,7 +2262,7 @@
             "lo-fi beats",
             "lo-fi jazzhop"
         ],
-        "followers": 6148,
+        "followers": 6192,
         "popularity": 47
     },
     {
@@ -2266,7 +2271,7 @@
             "hypertechno",
             "pop dance"
         ],
-        "followers": 71668,
+        "followers": 72184,
         "popularity": 70
     },
     {
@@ -2276,7 +2281,7 @@
             "dance pop",
             "pop"
         ],
-        "followers": 5907020,
+        "followers": 5925649,
         "popularity": 78
     },
     {
@@ -2284,7 +2289,7 @@
         "genres": [
             "australian hip hop"
         ],
-        "followers": 5726013,
+        "followers": 5752010,
         "popularity": 85
     },
     {
@@ -2294,7 +2299,7 @@
             "new wave pop",
             "synthpop"
         ],
-        "followers": 914487,
+        "followers": 920904,
         "popularity": 73
     },
     {
@@ -2304,8 +2309,8 @@
             "french pop",
             "variete francaise"
         ],
-        "followers": 2735144,
-        "popularity": 68
+        "followers": 2736761,
+        "popularity": 69
     },
     {
         "artist": "Kane Brown",
@@ -2315,8 +2320,8 @@
             "country",
             "country road"
         ],
-        "followers": 5531246,
-        "popularity": 76
+        "followers": 5538445,
+        "popularity": 77
     },
     {
         "artist": "Chris Brown",
@@ -2324,7 +2329,7 @@
             "r&b",
             "rap"
         ],
-        "followers": 23580562,
+        "followers": 23685056,
         "popularity": 88
     },
     {
@@ -2332,7 +2337,7 @@
         "genres": [
             "electro house"
         ],
-        "followers": 39549165,
+        "followers": 39592551,
         "popularity": 82
     },
     {
@@ -2341,7 +2346,7 @@
             "rap",
             "slap house"
         ],
-        "followers": 33496934,
+        "followers": 33711661,
         "popularity": 94
     },
     {
@@ -2352,7 +2357,7 @@
             "rap",
             "trap"
         ],
-        "followers": 8095997,
+        "followers": 8141609,
         "popularity": 87
     },
     {
@@ -2367,13 +2372,13 @@
             "southern hip hop",
             "trap"
         ],
-        "followers": 2437437,
-        "popularity": 71
+        "followers": 2439998,
+        "popularity": 72
     },
     {
         "artist": "Emma Nissen",
         "genres": [],
-        "followers": 74420,
+        "followers": 77301,
         "popularity": 50
     },
     {
@@ -2385,8 +2390,8 @@
             "progressive rock",
             "symphonic rock"
         ],
-        "followers": 1936477,
-        "popularity": 65
+        "followers": 1940195,
+        "popularity": 64
     },
     {
         "artist": "Metallica",
@@ -2397,7 +2402,7 @@
             "rock",
             "thrash metal"
         ],
-        "followers": 28610194,
+        "followers": 28684671,
         "popularity": 84
     },
     {
@@ -2405,18 +2410,14 @@
         "genres": [
             "spanish pop"
         ],
-        "followers": 253484,
+        "followers": 253999,
         "popularity": 63
     },
     {
-        "artist": "Laylow",
-        "genres": [
-            "cloud rap francais",
-            "french hip hop",
-            "pop urbaine"
-        ],
-        "followers": 806324,
-        "popularity": 68
+        "artist": "Peysoh",
+        "genres": [],
+        "followers": 145170,
+        "popularity": 56
     },
     {
         "artist": "Shaboozey",
@@ -2424,7 +2425,7 @@
             "modern country pop",
             "pop rap"
         ],
-        "followers": 709153,
+        "followers": 723976,
         "popularity": 81
     },
     {
@@ -2432,15 +2433,15 @@
         "genres": [
             "indie r&b"
         ],
-        "followers": 182765,
-        "popularity": 65
+        "followers": 188996,
+        "popularity": 66
     },
     {
         "artist": "Zach Bryan",
         "genres": [
             "classic oklahoma country"
         ],
-        "followers": 5242496,
+        "followers": 5302985,
         "popularity": 91
     },
     {
@@ -2453,8 +2454,8 @@
             "rap",
             "west coast rap"
         ],
-        "followers": 9110727,
-        "popularity": 74
+        "followers": 9165433,
+        "popularity": 75
     },
     {
         "artist": "Ni\u00f1os Mutantes",
@@ -2464,7 +2465,7 @@
             "spanish indie pop",
             "spanish modern rock"
         ],
-        "followers": 91109,
+        "followers": 91242,
         "popularity": 43
     },
     {
@@ -2474,7 +2475,7 @@
             "rap dominicano",
             "trap latino"
         ],
-        "followers": 275242,
+        "followers": 275662,
         "popularity": 63
     },
     {
@@ -2482,8 +2483,8 @@
         "genres": [
             "k-pop"
         ],
-        "followers": 9112952,
-        "popularity": 82
+        "followers": 9227814,
+        "popularity": 83
     },
     {
         "artist": "AC/DC",
@@ -2492,7 +2493,7 @@
             "hard rock",
             "rock"
         ],
-        "followers": 29536730,
+        "followers": 29595700,
         "popularity": 84
     },
     {
@@ -2500,14 +2501,14 @@
         "genres": [
             "melodic rap"
         ],
-        "followers": 1863098,
+        "followers": 1863495,
         "popularity": 72
     },
     {
         "artist": "Dasha",
         "genres": [],
-        "followers": 233684,
-        "popularity": 76
+        "followers": 238267,
+        "popularity": 75
     },
     {
         "artist": "Drake",
@@ -2518,7 +2519,7 @@
             "pop rap",
             "rap"
         ],
-        "followers": 92432769,
+        "followers": 92632184,
         "popularity": 96
     },
     {
@@ -2529,37 +2530,36 @@
             "soft rock",
             "yacht rock"
         ],
-        "followers": 1714489,
+        "followers": 1716196,
         "popularity": 63
     },
     {
-        "artist": "The Alchemist",
+        "artist": "Dilated Peoples",
         "genres": [
             "alternative hip hop",
-            "drumless hip hop",
+            "hardcore hip hop",
             "hip hop",
-            "instrumental hip hop",
             "west coast rap"
         ],
-        "followers": 733717,
-        "popularity": 73
+        "followers": 219399,
+        "popularity": 50
     },
     {
         "artist": "Billy Ray Cyrus",
         "genres": [
             "country rock"
         ],
-        "followers": 253539,
+        "followers": 254009,
         "popularity": 63
     },
     {
-        "artist": "GAIA",
+        "artist": "Gaiea Sanskrit",
         "genres": [
-            "trance",
-            "uplifting trance"
+            "kirtan",
+            "world devotional"
         ],
-        "followers": 104167,
-        "popularity": 52
+        "followers": 30956,
+        "popularity": 42
     },
     {
         "artist": "Melanie Martinez",
@@ -2568,7 +2568,7 @@
             "electropop",
             "pop"
         ],
-        "followers": 21367455,
+        "followers": 21402342,
         "popularity": 80
     },
     {
@@ -2578,7 +2578,7 @@
             "swedish pop",
             "synthpop"
         ],
-        "followers": 2345711,
+        "followers": 2355638,
         "popularity": 74
     },
     {
@@ -2586,7 +2586,7 @@
         "genres": [
             "turkce slow sarkilar"
         ],
-        "followers": 1525754,
+        "followers": 1541489,
         "popularity": 72
     },
     {
@@ -2597,7 +2597,7 @@
             "pop",
             "progressive electro house"
         ],
-        "followers": 33825642,
+        "followers": 33837065,
         "popularity": 84
     },
     {
@@ -2607,7 +2607,7 @@
             "pop dance",
             "uk dance"
         ],
-        "followers": 217860,
+        "followers": 219231,
         "popularity": 70
     },
     {
@@ -2616,7 +2616,7 @@
             "art pop",
             "pop"
         ],
-        "followers": 100485485,
+        "followers": 100866855,
         "popularity": 96
     },
     {
@@ -2627,7 +2627,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 7753869,
+        "followers": 7781958,
         "popularity": 80
     },
     {
@@ -2641,7 +2641,7 @@
             "progressive house",
             "uk dance"
         ],
-        "followers": 22883431,
+        "followers": 22893030,
         "popularity": 87
     },
     {
@@ -2649,7 +2649,7 @@
         "genres": [
             "nyc pop"
         ],
-        "followers": 205612,
+        "followers": 206824,
         "popularity": 57
     },
     {
@@ -2662,8 +2662,8 @@
             "new jersey rap",
             "r&b"
         ],
-        "followers": 3076084,
-        "popularity": 74
+        "followers": 3086269,
+        "popularity": 75
     },
     {
         "artist": "Aitana",
@@ -2672,7 +2672,7 @@
             "latin viral pop",
             "spanish pop"
         ],
-        "followers": 3087330,
+        "followers": 3093379,
         "popularity": 74
     },
     {
@@ -2680,7 +2680,7 @@
         "genres": [
             "chill abstract hip hop"
         ],
-        "followers": 726230,
+        "followers": 734192,
         "popularity": 80
     },
     {
@@ -2689,7 +2689,7 @@
             "italian hip hop",
             "italian pop"
         ],
-        "followers": 1061718,
+        "followers": 1084436,
         "popularity": 77
     },
     {
@@ -2698,16 +2698,16 @@
             "memphis hip hop",
             "rap"
         ],
-        "followers": 8666705,
-        "popularity": 79
+        "followers": 8702747,
+        "popularity": 80
     },
     {
         "artist": "Gigi Perez",
         "genres": [
             "bedroom pop"
         ],
-        "followers": 298723,
-        "popularity": 77
+        "followers": 333585,
+        "popularity": 78
     },
     {
         "artist": "OBOY",
@@ -2716,7 +2716,7 @@
             "pop urbaine",
             "rap francais"
         ],
-        "followers": 935466,
+        "followers": 939186,
         "popularity": 69
     },
     {
@@ -2725,7 +2725,7 @@
             "argentine hip hop",
             "trap argentino"
         ],
-        "followers": 1309496,
+        "followers": 1313183,
         "popularity": 67
     },
     {
@@ -2736,7 +2736,7 @@
             "r&b francais",
             "rap conscient"
         ],
-        "followers": 4905498,
+        "followers": 4948104,
         "popularity": 80
     },
     {
@@ -2744,7 +2744,7 @@
         "genres": [
             "rap dominicano"
         ],
-        "followers": 240940,
+        "followers": 241931,
         "popularity": 64
     },
     {
@@ -2756,7 +2756,7 @@
             "pop argentino",
             "rock en espanol"
         ],
-        "followers": 2568954,
+        "followers": 2575756,
         "popularity": 72
     },
     {
@@ -2768,7 +2768,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 7577221,
+        "followers": 7630524,
         "popularity": 80
     },
     {
@@ -2778,7 +2778,7 @@
             "instrumental hip hop",
             "jazz rap"
         ],
-        "followers": 359954,
+        "followers": 360645,
         "popularity": 55
     },
     {
@@ -2788,7 +2788,7 @@
             "electronica",
             "trip hop"
         ],
-        "followers": 2291102,
+        "followers": 2299048,
         "popularity": 68
     },
     {
@@ -2798,7 +2798,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 4367664,
+        "followers": 4383389,
         "popularity": 80
     },
     {
@@ -2808,8 +2808,8 @@
             "contemporary country",
             "country dawn"
         ],
-        "followers": 1481767,
-        "popularity": 78
+        "followers": 1484963,
+        "popularity": 77
     },
     {
         "artist": "The Vaccines",
@@ -2821,7 +2821,7 @@
             "rock",
             "scottish rock"
         ],
-        "followers": 785564,
+        "followers": 786199,
         "popularity": 58
     },
     {
@@ -2832,7 +2832,7 @@
             "country dawn",
             "country road"
         ],
-        "followers": 2807554,
+        "followers": 2808995,
         "popularity": 63
     },
     {
@@ -2843,7 +2843,7 @@
             "spanish new wave",
             "spanish pop"
         ],
-        "followers": 642118,
+        "followers": 643138,
         "popularity": 59
     },
     {
@@ -2854,7 +2854,7 @@
             "latin arena pop",
             "mexican pop"
         ],
-        "followers": 2609369,
+        "followers": 2614571,
         "popularity": 73
     },
     {
@@ -2865,7 +2865,7 @@
             "pop dance",
             "uk dance"
         ],
-        "followers": 90893,
+        "followers": 91456,
         "popularity": 70
     },
     {
@@ -2875,15 +2875,15 @@
             "spanish new wave",
             "spanish punk"
         ],
-        "followers": 125571,
-        "popularity": 42
+        "followers": 125752,
+        "popularity": 43
     },
     {
         "artist": "Casey MQ",
         "genres": [
             "bubblegum bass"
         ],
-        "followers": 8283,
+        "followers": 8373,
         "popularity": 35
     },
     {
@@ -2893,7 +2893,7 @@
             "pop urbaine",
             "rap conscient"
         ],
-        "followers": 2848888,
+        "followers": 2856063,
         "popularity": 69
     },
     {
@@ -2901,7 +2901,7 @@
         "genres": [
             "modern country pop"
         ],
-        "followers": 193676,
+        "followers": 196879,
         "popularity": 73
     },
     {
@@ -2917,7 +2917,7 @@
             "slap house",
             "trance"
         ],
-        "followers": 7510118,
+        "followers": 7520488,
         "popularity": 85
     },
     {
@@ -2926,8 +2926,8 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 1340740,
-        "popularity": 82
+        "followers": 1359785,
+        "popularity": 81
     },
     {
         "artist": "Charlie Brown Jr.",
@@ -2937,7 +2937,7 @@
             "rock alternativo brasileiro",
             "rock nacional brasileiro"
         ],
-        "followers": 7453959,
+        "followers": 7487754,
         "popularity": 76
     },
     {
@@ -2946,7 +2946,7 @@
             "pop",
             "rap"
         ],
-        "followers": 24510799,
+        "followers": 24541790,
         "popularity": 81
     },
     {
@@ -2954,7 +2954,7 @@
         "genres": [
             "melodic house"
         ],
-        "followers": 318338,
+        "followers": 324079,
         "popularity": 77
     },
     {
@@ -2964,7 +2964,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 5348498,
+        "followers": 5367451,
         "popularity": 81
     },
     {
@@ -2973,7 +2973,7 @@
             "contemporary country",
             "country"
         ],
-        "followers": 11500891,
+        "followers": 11545769,
         "popularity": 88
     },
     {
@@ -2981,14 +2981,14 @@
         "genres": [
             "irish hip hop"
         ],
-        "followers": 168206,
+        "followers": 175347,
         "popularity": 74
     },
     {
-        "artist": "Tequila Tequila",
+        "artist": "The Tequila Worms",
         "genres": [],
-        "followers": 91,
-        "popularity": 0
+        "followers": 123,
+        "popularity": 2
     },
     {
         "artist": "Daya",
@@ -2996,7 +2996,7 @@
             "alt z",
             "pop"
         ],
-        "followers": 1669472,
+        "followers": 1673468,
         "popularity": 72
     },
     {
@@ -3004,7 +3004,7 @@
         "genres": [
             "r&b en espanol"
         ],
-        "followers": 127161,
+        "followers": 131558,
         "popularity": 71
     },
     {
@@ -3015,14 +3015,14 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 3042061,
+        "followers": 3077628,
         "popularity": 79
     },
     {
         "artist": "FT Kings",
         "genres": [],
-        "followers": 16823,
-        "popularity": 66
+        "followers": 17874,
+        "popularity": 67
     },
     {
         "artist": "Meghan Trainor",
@@ -3030,7 +3030,7 @@
             "hip pop",
             "pop"
         ],
-        "followers": 15386185,
+        "followers": 15402687,
         "popularity": 80
     },
     {
@@ -3042,7 +3042,7 @@
             "pov: indie",
             "rock"
         ],
-        "followers": 7401662,
+        "followers": 7413810,
         "popularity": 78
     },
     {
@@ -3056,7 +3056,7 @@
         "genres": [
             "singer-songwriter pop"
         ],
-        "followers": 505677,
+        "followers": 511228,
         "popularity": 76
     },
     {
@@ -3065,7 +3065,7 @@
             "chicago rap",
             "rap"
         ],
-        "followers": 11846932,
+        "followers": 11876890,
         "popularity": 81
     },
     {
@@ -3078,7 +3078,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 14052716,
+        "followers": 14092972,
         "popularity": 84
     },
     {
@@ -3086,7 +3086,7 @@
         "genres": [
             "contemporary country"
         ],
-        "followers": 10810229,
+        "followers": 10880228,
         "popularity": 91
     },
     {
@@ -3096,7 +3096,7 @@
             "italian pop",
             "rap genovese"
         ],
-        "followers": 268791,
+        "followers": 269964,
         "popularity": 69
     },
     {
@@ -3104,8 +3104,8 @@
         "genres": [
             "rap francais"
         ],
-        "followers": 53504,
-        "popularity": 59
+        "followers": 54550,
+        "popularity": 60
     },
     {
         "artist": "Chimbala",
@@ -3113,7 +3113,7 @@
             "dembow",
             "rap dominicano"
         ],
-        "followers": 639664,
+        "followers": 641468,
         "popularity": 70
     },
     {
@@ -3126,7 +3126,7 @@
             "queens hip hop",
             "rap"
         ],
-        "followers": 15646318,
+        "followers": 15734954,
         "popularity": 85
     },
     {
@@ -3134,7 +3134,7 @@
         "genres": [
             "rap"
         ],
-        "followers": 5037087,
+        "followers": 5093747,
         "popularity": 87
     },
     {
@@ -3142,13 +3142,13 @@
         "genres": [
             "pop"
         ],
-        "followers": 20518376,
+        "followers": 20539287,
         "popularity": 83
     },
     {
         "artist": "KADI",
         "genres": [],
-        "followers": 38777,
+        "followers": 38774,
         "popularity": 48
     },
     {
@@ -3161,7 +3161,7 @@
             "soul",
             "urban contemporary"
         ],
-        "followers": 1017857,
+        "followers": 1019629,
         "popularity": 53
     },
     {
@@ -3169,7 +3169,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 123220924,
+        "followers": 123832268,
         "popularity": 100
     },
     {
@@ -3181,7 +3181,7 @@
             "ghanaian alternative",
             "ghanaian pop"
         ],
-        "followers": 439863,
+        "followers": 442871,
         "popularity": 69
     },
     {
@@ -3194,8 +3194,8 @@
             "southern hip hop",
             "trap"
         ],
-        "followers": 11250928,
-        "popularity": 82
+        "followers": 11277546,
+        "popularity": 83
     },
     {
         "artist": "Juli\u00f3n \u00c1lvarez y su Norte\u00f1o Banda",
@@ -3205,7 +3205,7 @@
             "norteno",
             "sad sierreno"
         ],
-        "followers": 6572032,
+        "followers": 6676487,
         "popularity": 84
     },
     {
@@ -3216,7 +3216,7 @@
             "spanish new wave",
             "spanish pop"
         ],
-        "followers": 642118,
+        "followers": 643138,
         "popularity": 59
     },
     {
@@ -3224,7 +3224,7 @@
         "genres": [
             "raspe"
         ],
-        "followers": 37480,
+        "followers": 38524,
         "popularity": 66
     },
     {
@@ -3233,7 +3233,7 @@
             "corridos tumbados",
             "sad sierreno"
         ],
-        "followers": 16533607,
+        "followers": 16695112,
         "popularity": 93
     },
     {
@@ -3241,7 +3241,7 @@
         "genres": [
             "pop"
         ],
-        "followers": 24833068,
+        "followers": 24879382,
         "popularity": 84
     },
     {
@@ -3253,7 +3253,7 @@
             "pop",
             "pop dance"
         ],
-        "followers": 26270443,
+        "followers": 26298763,
         "popularity": 90
     },
     {
@@ -3262,7 +3262,7 @@
             "reggaeton",
             "urbano latino"
         ],
-        "followers": 5055818,
+        "followers": 5124043,
         "popularity": 82
     },
     {
@@ -3270,7 +3270,7 @@
         "genres": [
             "singer-songwriter pop"
         ],
-        "followers": 736021,
+        "followers": 751678,
         "popularity": 79
     },
     {
@@ -3280,7 +3280,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 4807524,
+        "followers": 4882763,
         "popularity": 83
     },
     {
@@ -3291,14 +3291,14 @@
             "rock",
             "soft rock"
         ],
-        "followers": 4903889,
+        "followers": 4915114,
         "popularity": 73
     },
     {
         "artist": "W Sound",
         "genres": [],
-        "followers": 93557,
-        "popularity": 64
+        "followers": 116656,
+        "popularity": 66
     },
     {
         "artist": "Kelly Clarkson",
@@ -3307,7 +3307,7 @@
             "pop",
             "talent show"
         ],
-        "followers": 10588683,
+        "followers": 10599267,
         "popularity": 74
     },
     {
@@ -3320,7 +3320,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 15108650,
+        "followers": 15155007,
         "popularity": 79
     },
     {
@@ -3332,7 +3332,7 @@
             "pop urbaine",
             "rap belge"
         ],
-        "followers": 1366589,
+        "followers": 1373471,
         "popularity": 74
     },
     {
@@ -3343,7 +3343,7 @@
             "r&b",
             "urban contemporary"
         ],
-        "followers": 457484,
+        "followers": 457389,
         "popularity": 30
     },
     {
@@ -3352,7 +3352,7 @@
             "turkish hip hop",
             "turkish trap"
         ],
-        "followers": 5153217,
+        "followers": 5180224,
         "popularity": 72
     },
     {
@@ -3362,7 +3362,7 @@
             "east coast hip hop",
             "jazz rap"
         ],
-        "followers": 160518,
+        "followers": 160785,
         "popularity": 44
     },
     {
@@ -3372,7 +3372,7 @@
             "irish indie rock",
             "irish post-punk"
         ],
-        "followers": 637871,
+        "followers": 645930,
         "popularity": 72
     },
     {
@@ -3381,7 +3381,7 @@
             "modern blues",
             "modern blues rock"
         ],
-        "followers": 263658,
+        "followers": 265355,
         "popularity": 57
     },
     {
@@ -3390,13 +3390,13 @@
             "funk carioca",
             "pop nacional"
         ],
-        "followers": 6077243,
+        "followers": 6091849,
         "popularity": 77
     },
     {
         "artist": "Teddy Swims",
         "genres": [],
-        "followers": 3138526,
+        "followers": 3187267,
         "popularity": 86
     },
     {
@@ -3405,7 +3405,7 @@
             "reggaeton",
             "urbano latino"
         ],
-        "followers": 1158704,
+        "followers": 1161318,
         "popularity": 73
     },
     {
@@ -3415,7 +3415,7 @@
             "pop",
             "urban contemporary"
         ],
-        "followers": 63038925,
+        "followers": 63182118,
         "popularity": 92
     },
     {
@@ -3425,7 +3425,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 86136688,
+        "followers": 86320568,
         "popularity": 95
     },
     {
@@ -3439,7 +3439,7 @@
             "spanish new wave",
             "spanish pop"
         ],
-        "followers": 808189,
+        "followers": 811699,
         "popularity": 63
     },
     {
@@ -3449,7 +3449,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 5025605,
+        "followers": 5057388,
         "popularity": 81
     },
     {
@@ -3457,7 +3457,7 @@
         "genres": [
             "melodic house"
         ],
-        "followers": 84945,
+        "followers": 86505,
         "popularity": 66
     },
     {
@@ -3466,7 +3466,7 @@
             "indietronica",
             "industrial pop"
         ],
-        "followers": 201379,
+        "followers": 201895,
         "popularity": 51
     },
     {
@@ -3474,8 +3474,8 @@
         "genres": [
             "reggaeton chileno"
         ],
-        "followers": 106704,
-        "popularity": 64
+        "followers": 108051,
+        "popularity": 65
     },
     {
         "artist": "RAYE",
@@ -3483,13 +3483,13 @@
             "uk contemporary r&b",
             "uk pop"
         ],
-        "followers": 1678237,
-        "popularity": 78
+        "followers": 1696609,
+        "popularity": 79
     },
     {
         "artist": "L.V.",
         "genres": [],
-        "followers": 39705,
+        "followers": 40254,
         "popularity": 70
     },
     {
@@ -3498,27 +3498,22 @@
             "latin pop",
             "puerto rican pop"
         ],
-        "followers": 8248195,
+        "followers": 8270548,
         "popularity": 76
     },
     {
-        "artist": "Lynda Carter",
-        "genres": [],
-        "followers": 9094,
+        "artist": "Lynda Randle",
+        "genres": [
+            "southern gospel"
+        ],
+        "followers": 44271,
         "popularity": 39
     },
     {
-        "artist": "Diddy",
-        "genres": [
-            "dance pop",
-            "east coast hip hop",
-            "hip hop",
-            "hip pop",
-            "pop rap",
-            "rap"
-        ],
-        "followers": 1770106,
-        "popularity": 74
+        "artist": "R. Kelly",
+        "genres": [],
+        "followers": 2425373,
+        "popularity": 69
     },
     {
         "artist": "JHAYCO",
@@ -3527,7 +3522,7 @@
             "trap latino",
             "urbano latino"
         ],
-        "followers": 8099506,
+        "followers": 8119240,
         "popularity": 84
     },
     {
@@ -3537,8 +3532,8 @@
             "east coast hip hop",
             "old school hip hop"
         ],
-        "followers": 71611,
-        "popularity": 51
+        "followers": 71732,
+        "popularity": 52
     },
     {
         "artist": "Eminem",
@@ -3547,7 +3542,7 @@
             "hip hop",
             "rap"
         ],
-        "followers": 91259972,
+        "followers": 91678017,
         "popularity": 93
     },
     {
@@ -3560,14 +3555,14 @@
             "rock",
             "soft rock"
         ],
-        "followers": 5732190,
+        "followers": 5749016,
         "popularity": 77
     },
     {
         "artist": "Tyla",
         "genres": [],
-        "followers": 1956844,
-        "popularity": 76
+        "followers": 1996885,
+        "popularity": 77
     },
     {
         "artist": "Lil' Kim",
@@ -3583,13 +3578,13 @@
             "trap queen",
             "urban contemporary"
         ],
-        "followers": 1769890,
+        "followers": 1772648,
         "popularity": 65
     },
     {
         "artist": "SNAYX",
         "genres": [],
-        "followers": 8471,
+        "followers": 8584,
         "popularity": 32
     }
 ]

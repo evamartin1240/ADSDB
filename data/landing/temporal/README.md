@@ -1,0 +1,1 @@
+In the temporal landing zone, all the raw files of the different data sources will be copied, waiting to be further processed and, then, deleted from the system. So, if you don't find files here, that means that they have been furthered processed and deleted from this directory.
