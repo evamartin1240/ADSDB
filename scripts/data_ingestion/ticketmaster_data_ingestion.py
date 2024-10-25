@@ -7,12 +7,8 @@ import os
 Fetch data from the Ticketmaster API and saves the resulting .json files in the temporal landing zone.
 """
 
-"""## Fetch data from Ticketmaster and save to JSON in the temporal landing directory
-Something.
-"""
-
 def extract_event_info(artist, event):
-    """Function that gets an artist event and returns its information (date, location, price, etc.)
+    """ Function that given a TicketMaster 'event', returns its available information (date, location, price, etc.)
     """
 
     venue = event['_embedded']['venues'][0] if '_embedded' in event and 'venues' in event['_embedded'] else {}

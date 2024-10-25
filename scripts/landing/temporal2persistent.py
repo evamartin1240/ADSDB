@@ -9,7 +9,7 @@ Take the data files for Spotify and Ticketmaster in the temporal landing and mov
 def temporal2persistent(tempdir_in, persistdir_out):
     """
     Function to move files from the temporal landing to the persistent landing.
-    The function renames each file using its creation date and applies transformations based on the source.
+    The function renames each file using its ingestion date and source ("source_DD/MM/YYYY.json").
     """
 
     for filename_in in os.listdir(tempdir_in):  # Iterate over files in the temporary directory

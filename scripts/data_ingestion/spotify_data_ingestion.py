@@ -5,13 +5,12 @@ import time
 import os
 
 """# Spotify Data Ingestion
-Fetch data from the Spotify API saves the resulting .json files to the temporal landing zone.
-"""
-
-"""## Spotify Credentials
+Fetch data from the Spotify API and save the resulting .json files to the temporal landing zone.
 """
 
 def get_headers_spotify(client_id, client_secret):
+    """ Function that creates the 'header' object (Spotify credentials), needed to retrieve data from Spotify API.
+    """
     auth_str = f"{client_id}:{client_secret}"
     b64_auth_str = base64.b64encode(auth_str.encode()).decode()
     # Request access token
@@ -29,10 +28,6 @@ def get_headers_spotify(client_id, client_secret):
         "Authorization": f"Bearer {access_token}"
     }
     return headers
-
-"""## Fetch data from Spotify and save to JSON
-Something.
-"""
 
 def ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, client_secret):
     """ Function that retrieves data from Spotify API.
