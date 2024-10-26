@@ -36,7 +36,7 @@ def extract_event_info(artist, event):
 
     return event_info
 
-def ingest_ticketmaster_data(raw_data_path, out_filename, artist_names, api_key):
+def ingest_ticketmaster_data(api_key, artist_names, raw_data_path, out_filename):
     """ Function that retrieves data from TicketMaster API.
     """
 
@@ -72,18 +72,22 @@ def ingest_ticketmaster_data(raw_data_path, out_filename, artist_names, api_key)
     print(f"Ticketmaster data has been saved to {output_path}")
 
 if __name__ == "__main__":
+    # TicketMaster credentials
+    api_key = input("TicketMaster API key: ")
+
+    # Read artist names file
     artist_names_file = input("Artist names to retrieve (.txt file): ")
     with open(artist_names_file, 'r') as file: 
         artist_names = [line.strip() for line in file]
-    artist_names = ['Black Pumas', "Haze"] 
 
+    # Raw data path to store the ingested raw data files
     raw_data_path = input("Path to store the ingested raw data files: ")
     
-    out_filename = input("Output .json file name: ").strip()
-
-    api_key = input("TicketMaster API key: ") 
+    # Output file name
+    out_filename = input("Output .json file name: ").strip() 
     
-    ingest_ticketmaster_data(raw_data_path, out_filename, artist_names, api_key)
+    # Run function
+    ingest_ticketmaster_data(api_key, artist_names, raw_data_path, out_filename)
 
     # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
     # raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'

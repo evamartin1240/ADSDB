@@ -29,7 +29,7 @@ def get_headers_spotify(client_id, client_secret):
     }
     return headers
 
-def ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, client_secret):
+def ingest_spotify_data(client_id, client_secret, artist_names, raw_data_path, out_filename):
     """ Function that retrieves data from Spotify API.
     """
     headers = get_headers_spotify(client_id, client_secret)
@@ -65,22 +65,34 @@ def ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, cl
     print(f"Spotify data has been saved to {output_path}")
 
 if __name__ == "__main__":
+    # Spotify credentials
+    client_id = input("Spotify client id: ") 
+    client_secret = input("Spotify client secret: ")
+
+    # Read artist names file
     artist_names_file = input("Artist names to retrieve (.txt file): ")
     with open(artist_names_file, 'r') as file: 
         artist_names = [line.strip() for line in file]
-    artist_names = ['Black Pumas', "Haze"] 
-
+    
+    # Raw data path to store the ingested raw data files
     raw_data_path = input("Path to store the ingested raw data files: ")
-    
+
+    # Output file name
     out_filename = input("Output .json file name: ").strip()
-
-    client_id = input("Spotify client id: ") 
-    client_secret = input("Spotify client secret: ")
     
-    ingest_spotify_data(raw_data_path, out_filename, artist_names, client_id, client_secret)
+    # Run function
+    ingest_spotify_data(client_id, client_secret, artist_names, raw_data_path, out_filename)
 
-    # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
-    # raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'
-    # out_filename = 'spotify_dataV1.json'
-    # Keys for the Spotify API: client_id = '62f9499b009c49d8b6363890028ce155', client_secret = '8b1ec143c4d94ea6aa3920b3b8bf2ee6'
+    """
+    artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/LISTA_ARTISTAS.txt'
+    raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw_PROB'
+    out_filename = 'spotify_dataV1.json'
+    # Keys for the Spotify API: 
+    client_id = '62f9499b009c49d8b6363890028ce155'
+    client_secret = '8b1ec143c4d94ea6aa3920b3b8bf2ee6'
+    with open(artist_names_file, 'r') as file: 
+        artist_names = [line.strip() for line in file]
+    # Run function
+    ingest_spotify_data(client_id, client_secret, raw_data_path, out_filename, artist_names)
     # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif
+    """

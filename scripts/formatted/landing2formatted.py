@@ -1,44 +1,63 @@
 import pandas as pd
 import json
 import os
+import duckdb
 
-"""# Persistent landing zone to formatted zone
-Take all the files in the system (persistent landing zone) and unify the formats.
+"""
+Persistent landing zone to formatted zone
+Take all the files in the system (persistent landing zone) and unify the formats from JSON to DuckDB database.
 """
 
-def convert_json_to_csv(json_file_path, csv_file_path):
-  """ Function to convert json to csv.
-  """
+def convert_json_to_duckdb(json_file_path, con):
+    """ Function to convert JSON to DuckDB.
+    """
+    # Load the JSON data
+    with open(json_file_path, 'r') as json_file:
+        data = json.load(json_file)
 
-  with open(json_file_path, 'r') as json_file:
-    data = json.load(json_file)
-
-    # Convertir el JSON a un DataFrame
+    # Convert the JSON data to a pandas DataFrame
     df = pd.json_normalize(data)
 
-    # Guardar como archivo CSV
-    df.to_csv(csv_file_path, index=False)
-    print(f'CSV file saved: {csv_file_path}')
+    # Print the shape of the DataFrame
+    print(f"Loaded DataFrame shape from {json_file_path}: {df.shape}")
+
+    # Save the DataFrame into a DuckDB table (name the table after the original JSON file, without extension)
+    table_name = os.path.basename(json_file_path).replace('.json', '')
+    con.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+
+    # Print confirmation of table creation
+    print(f'Table {table_name} created in DuckDB database with shape: {df.shape}')
 
 def landing2formatted(persdir_in, formdir_out):
     """ Function to iterate over JSON files in the persistent directory,
-        convert them to CSV, and save in the formatted directory.
+        convert them to DuckDB, and save in the formatted directory.
     """
 
-    if not os.path.exists(formdir_out): # If the formatted directory doesn't exist, create it
-       os.makedirs(formdir_out)
+    if not os.path.exists(formdir_out):  # If the formatted directory doesn't exist, create it
+        os.makedirs(formdir_out)
 
-    # Iterate over all the files in the persistent directory to change the format from JSON to CSV
+    # Define the DuckDB file path
+    duckdb_file_path = os.path.join(formdir_out, 'formatted.duckdb')
+
+    # Connect to DuckDB (create or open the .duckdb file)
+    con = duckdb.connect(database=duckdb_file_path)
+
+    # Iterate over all the files in the persistent directory to change the format from JSON to DuckDB
     for root, dirs, files in os.walk(persdir_in):
         for file in files:
             if file.endswith('.json'):  # Only process .json files
                 json_file_path = os.path.join(root, file)
-                csv_file_name = file.replace('.json', '.csv')
-                csv_file_path = os.path.join(formdir_out, csv_file_name)
-                convert_json_to_csv(json_file_path, csv_file_path)
+                convert_json_to_duckdb(json_file_path, con)
+
+    # Close the DuckDB connection
+    con.close()
+
+    print(f'DuckDB database created: {duckdb_file_path}')
+
 
 if __name__ == "__main__":
     persdir_in = input("Persistent landing directory path (input): ")
     formdir_out = input("Formatted landing directory path (output): ")
-
+    # persdir_in = "/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/landing/persistent"
+    # formdir_out = "/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/probando_formatted"
     landing2formatted(persdir_in, formdir_out)
