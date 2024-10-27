@@ -9,7 +9,7 @@ def deduplication(db_file):
     tables = ['ticketmaster', 'spotify']
     
     for table in tables:
-        # Load table into a DataFrame
+        # Load table into a dataframe
         df = conn.execute(f"SELECT * FROM {table}").df()
         
         # Define the subset of columns for deduplication
@@ -22,12 +22,11 @@ def deduplication(db_file):
             df_deduplicated = df.drop_duplicates(subset=['artist', 'source_date'])
             print(f"Spotify dataset dimensions: {df_deduplicated.shape}")
         
-        # Save the deduplicated DataFrame back to DuckDB
+        # Save the deduplicated table back to DuckDB
         conn.execute(f"DROP TABLE IF EXISTS {table}")
         conn.execute(f"CREATE TABLE {table} AS SELECT * FROM df_deduplicated")
 
     # Close the connection
     conn.close()
 
-# Example usage
-deduplication('/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/probando_trusted/trusted.duckdb')
+# deduplication('/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/probando_trusted/trusted.duckdb')

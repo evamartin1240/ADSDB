@@ -2,12 +2,12 @@ import os
 import shutil
 
 """# Raw to Temporal Landing
-Take the data files for Spotify and Ticketmaster in the raw directory and moves them to the temporal landing applying the necessary transformations.
+Take the data files for Spotify and Ticketmaster in the raw directory and copies them to the temporal landing directory.
 """
 
 def raw2temporal(rawdir_in, tempdir_out):
     """
-    Function to copy raw data files from the directory where the raw data is stored (rawdir_in)
+    Copy raw data files from the directory where the raw data is stored (rawdir_in)
     to the temporal directory (tempdir_out).
     """
     

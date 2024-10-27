@@ -9,7 +9,7 @@ Take all the files in the system (persistent landing zone) and unify the formats
 """
 
 def convert_json_to_duckdb(json_file_path, con):
-    """ Function to convert JSON to DuckDB.
+    """ Function to convert .json to DuckDB.
     """
     # Load the JSON data
     with open(json_file_path, 'r') as json_file:
@@ -21,16 +21,20 @@ def convert_json_to_duckdb(json_file_path, con):
     # Print the shape of the DataFrame
     print(f"Loaded DataFrame shape from {json_file_path}: {df.shape}")
 
-    # Save the DataFrame into a DuckDB table (name the table after the original JSON file, without extension)
+    # Register the DataFrame in DuckDB
+    con.register("temp_df", df)
+
+    # Save the DataFrame into a DuckDB table (name the table after the JSON file, without extension)
     table_name = os.path.basename(json_file_path).replace('.json', '')
-    con.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+    con.execute(f"CREATE OR REPLACE TABLE {table_name} AS SELECT * FROM temp_df")
+
 
     # Print confirmation of table creation
     print(f'Table {table_name} created in DuckDB database with shape: {df.shape}')
 
 def landing2formatted(persdir_in, formdir_out):
-    """ Function to iterate over JSON files in the persistent directory,
-        convert them to DuckDB, and save in the formatted directory.
+    """ Function to iterate over .json files in the persistent directory,
+        convert them to DuckDB, and save them in the formatted directory.
     """
 
     if not os.path.exists(formdir_out):  # If the formatted directory doesn't exist, create it

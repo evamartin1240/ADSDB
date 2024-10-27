@@ -1,53 +1,71 @@
 import pandas as pd
 import os
+import duckdb
 
 """# Formatted to trusted:
 Homogeneization of different version of data from same source into a single table.
 """
 
-def formatted2trusted(formatted_dir, trusted_dir):
-    """ Homogenize .csvs from same source and add timestamps in order to keep track of the version.
+def formatted2trusted(duckdb_file_path, trusted_dir):
+    """ Homogenize .duckdb files from the same source and add timestamps in order to keep track of the version.
     """
-  
     # Initialize empty lists to store all the dataframes for Spotify and TicketMaster found in the formatted zone
     spotify_dfs = []
     ticketmaster_dfs = []
 
-    for file_name in os.listdir(formatted_dir): # Loop through all files in the formatted directory
-        if file_name.endswith('.csv'): # Check if the file is a .csv
-            file_path = os.path.join(formatted_dir, file_name)
+    # Connect to the DuckDB file
+    con = duckdb.connect(database=duckdb_file_path, read_only=True)
 
-            # Extract the source (either "spotify" or "ticketmaster") and date from the filename
-            source, date = file_name.split('_')[0], file_name.split('_')[1].replace('.csv', '')
+    tables = con.execute("SHOW TABLES").fetchall()
 
-            # Load the CSV file into a DataFrame
-            df = pd.read_csv(file_path)
+    for table in tables:
+        table_name = table[0]  # Extract table name from the result
 
-            # Add a new column with 'source_date' to store the date from the file (in order to keep track of data versions)
-            df['source_date'] = date
+        # Extract the source (either "spotify" or "ticketmaster") and date from the table name
+        source, date = table_name.split('_', 1)         
 
-            # Check if the file is a "spotify" or "ticketmaster" file and append to the respective list
-            if 'spotify' in file_name.lower():
-                spotify_dfs.append(df)
-            elif 'ticketmaster' in file_name.lower():
-                ticketmaster_dfs.append(df)
+        df = con.execute(f"SELECT * FROM {table_name}").df()
 
+        # Add a new column with 'source_date' to store the date from the table name 
+        df['source_date'] = date
+
+        # Check if the table is a "spotify" or "ticketmaster" table and append to the respective list
+        if 'spotify' in source:
+            spotify_dfs.append(df)
+        elif 'ticketmaster' in source:
+            ticketmaster_dfs.append(df)
+
+    # Close the connection after reading
+    con.close()
+
+    # Create the trusted directory if it doesn't exist
     if not os.path.exists(trusted_dir):
-            os.makedirs(trusted_dir)
+        os.makedirs(trusted_dir)
 
-    # Concatenate all the Spotify dataframes into a single dataframe
+    # Create the trusted DuckDB database
+    combined_duckdb_path = os.path.join(trusted_dir, 'trusted.duckdb')
+    con = duckdb.connect(database=combined_duckdb_path)
+
+    # Concatenate and save the resulting Spotify table into the DuckDB database
     if spotify_dfs:
         spotify_data = pd.concat(spotify_dfs, ignore_index=True)
-        spotify_data.to_csv(os.path.join(trusted_dir, 'spotify_homogenized_dataset.csv'), index=False)
-        print("Spotify datasets homogenized into a single table.")
+        con.execute(f"DROP TABLE IF EXISTS {'spotify'}") # drop the table if it already existed
+        con.execute("CREATE TABLE spotify AS SELECT * FROM spotify_data")
+        print(f"Spotify dataset dimensions: {spotify_data.shape}")
+        print("Spotify datasets homogenized and saved into the DuckDB file.")
 
-    # Concatenate all the TicketMaster dataframes into a single dataframe
+    # Concatenate and save the resulting TicketMaster table into the DuckDB database
     if ticketmaster_dfs:
         ticketmaster_data = pd.concat(ticketmaster_dfs, ignore_index=True)
-        ticketmaster_data.to_csv(os.path.join(trusted_dir, 'ticketmaster_homogenized_dataset.csv'), index=False)
-        print("TicketMaster datasets homogenized into a single table.")
+        con.execute(f"DROP TABLE IF EXISTS {'ticketmaster'}") # drop the table if it already existed
+        con.execute("CREATE TABLE ticketmaster AS SELECT * FROM ticketmaster_data")
+        print(f"TicketMaster dataset dimensions: {ticketmaster_data.shape}")
+        print("TicketMaster datasets homogenized and saved into the DuckDB file.")
+
+    # Close the DuckDB connection
+    con.close()
 
 if __name__ == "__main__":
-    formatted_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/formatted' # Formatted directory
-    trusted_dir = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/trusted' # Trusted directory
-    formatted2trusted(formatted_dir, trusted_dir)
+    duckdb_file_path = input("Path to DuckDB file (input): ")
+    trustdir_out = input("Trusted directory path (output): ")
+    formatted2trusted(duckdb_file_path, trustdir_out)

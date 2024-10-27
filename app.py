@@ -16,6 +16,8 @@ from temporal2persistent import temporal2persistent # step 3
 from landing2formatted import landing2formatted # step 4
 from formatted2trusted import formatted2trusted # step 5
 from deduplication import deduplication # step 6.deduplication
+from profiling_formatted import spotify_profiling_app
+from profiling_formatted import ticketmaster_profiling_app
 
 # APP
 
@@ -59,47 +61,47 @@ with tab2:
             st.error("Please enter all required fields.")
 
 
-####### Step 2: Raw to Temporal Landing Section #######
+####### Step 2: Raw to Temporal Landing #######
 
 st.markdown("<h3 style='color: #1f77b4;'>2. Raw to Temporal Landing</h3>", unsafe_allow_html=True)
 #st.markdown("<hr style='margin: 0; border: 1px solid blue;'>", unsafe_allow_html=True)
 
 # Input fields for the raw and temporal directory paths
-rawdir_in = st.text_input("Raw Directory Path (input)", "./raw_data")
-tempdir_out = st.text_input("Temporal Landing Directory Path (output)", "./temporal_data")
+rawdir_in = st.text_input("Input data path (raw)", "./data/raw", key="step2a")
+tempdir_out = st.text_input("Output data path (temporal)", "./data/landing/temporal", key="step2b")
 
-# Button to trigger the raw2temporal function
-if st.button("Copy raw data to temporal landing directory"):
+# Button to run the raw2temporal function
+if st.button("Copy Data"):
     if rawdir_in and tempdir_out:
         raw2temporal(rawdir_in, tempdir_out)
-        st.success(f"Data has been moved from {rawdir_in} to {tempdir_out}")
+        st.success(f"Data has been moved from '{rawdir_in}' to '{tempdir_out}'")
     else:
-        st.error("Please provide both input and output directory paths.")
+        st.error("Please provide both paths.")
 
 
-####### Step 3: Temporal to Persistent Landing #######
+####### Step 3: Temporal Landing to Persistent Landing #######
 
 st.markdown("<h3 style='color: #1f77b4;'>3. Temporal to Persistent Landing</h3>", unsafe_allow_html=True)
 
 # Input fields for the temporal and persistent directories
-tempdir_in = st.text_input("Enter Temporal Landing Directory Path:", key="step3a")
-persistdir_out = st.text_input("Enter Persistent Landing Directory Path:", key="step3b")
+tempdir_in = st.text_input("Input data path (temporal):", "./data/landing/temporal", key="step3a")
+persistdir_out = st.text_input("Output data path (persistent):", "./data/landing/persistent", key="step3b")
 
 if st.button("Move Data"):
     if tempdir_in and persistdir_out:
         # Call the temporal2persistent function
         temporal2persistent(tempdir_in, persistdir_out)
-        st.success("Data has been successfully moved from temporal to persistent landing.")
+        st.success(f"Data has been moved from '{tempdir_in}' to '{persistdir_out}'")
     else:
         st.error("Please provide both paths.")
 
-####### Step 4: Landing to Formatted Zone #######
+####### Step 4: Persistent Landing to Formatted #######
 
-st.markdown("<h3 style='color: #1f77b4;'>4. Landing to Formatted Zone</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color: #1f77b4;'>4. Persistent Landing to Formatted</h3>", unsafe_allow_html=True)
 
 # Input fields for the persistent and formatted directories
-persdir_in = st.text_input("Enter Persistent Landing Directory Path:", key="step4a")
-formdir_out = st.text_input("Enter Formatted Landing Directory Path:", key="step4b")
+persdir_in = st.text_input("Input data path (persistent):", "./data/landing/persistent", key="step4a")
+formdir_out = st.text_input("Output data path (formatted):", "./data/formatted",key="step4b")
 
 if st.button("Convert Data"):
     if persdir_in and formdir_out:
@@ -109,13 +111,25 @@ if st.button("Convert Data"):
     else:
         st.error("Please provide both paths.")
 
-####### Step 5: Formatted to Trusted Zone #######
+####### PROFILING FORMATTED ########
 
-st.markdown("<h3 style='color: #1f77b4;'>5. Formatted to Trusted Zone</h3>", unsafe_allow_html=True)
+st.markdown("<h4 style='color: #1f77b4;'> PROFILING - Formatted Zone</h4>", unsafe_allow_html=True)
+st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_html=True)
 
 # Input fields for the DuckDB file path and the trusted directory
-duckdb_file_path = st.text_input("Enter Formatted DuckDB File Path:", key="formatted_duckdb_input")
-trusted_dir = st.text_input("Enter Trusted Directory Path:", key="trusted_dir_output")
+duckdb_file_path = st.text_input("Input DuckDB database (formatted):","./data/formatted/formatted.duckdb" , key="prof1")
+
+if st.button("Profile"):
+    spotify_profiling_app(duckdb_file_path)
+    ticketmaster_profiling_app(duckdb_file_path)
+
+####### Step 5: Formatted to Trusted #######
+
+st.markdown("<h3 style='color: #1f77b4;'>5. Formatted to Trusted</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (formatted):","./data/formatted/formatted.duckdb" , key="step5a")
+trusted_dir = st.text_input("Output data path (trusted):","./data/trusted", key="step5b")
 
 if st.button("Homogenize and Save Data to Trusted Zone"):
     if duckdb_file_path and trusted_dir:
@@ -125,9 +139,9 @@ if st.button("Homogenize and Save Data to Trusted Zone"):
     else:
         st.error("Please provide both paths.")
 
-####### Step 6: Generic Data Quality #######
+####### Step 6: Data Quality (trusted zone) #######
 
-st.markdown("<h3 style='color: #1f77b4;'>6. Generic Data Quality</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color: #1f77b4;'>6. Data Quality (trusted zone)</h3>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["Deduplication", "Others"])
 
@@ -136,7 +150,7 @@ with tab1:
     # st.write("##### Deduplication")
     
     # Input field for the DuckDB database file path
-    db_file_path = st.text_input("Enter the DuckDB file path for deduplication:", key="db_file_path_dedup")
+    db_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="db_file_path_dedup")
     
     # Button to trigger deduplication
     if st.button("Run Deduplication"):

@@ -1,26 +1,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Define a function for descriptive analysis of numerical columns
+# Descriptive analysis of numerical columns
 def desc_num_cols(df):
     """
     Prints the descriptive statistics for numerical columns in the dataframe.
-
-    Parameters:
-    df (pandas.DataFrame): The input dataframe.
     """
     print("Descriptive analysis for numerical columns:")
     print('-'*40)
     print(df.describe())
 
+# Descriptive analysis of time & date columns
 def desc_time_date_col(df, time_column, col_type='date'):
     """
     Prints the descriptive statistics for the specified column in the dataframe.
-
-    Parameters:
-    df (pandas.DataFrame): The input dataframe.
-    time_column (str): The name of the time or date column.
-    col_type (str): Type of the column, either 'date' or 'time'.
     """
     if col_type not in ['date', 'time']:
         raise ValueError("col_type must be either 'date' or 'time'")
@@ -40,12 +33,10 @@ def desc_time_date_col(df, time_column, col_type='date'):
         print(f"Unique Times: {df[time_column].nunique()}")
         print(f"Most Frequent Time: {df[time_column].mode()[0]}")
 
+# Missing values information
 def na_information(df):
     """
     Prints a table with the count and percentage of missing values (NAs) in each column of the DataFrame.
-
-    Parameters:
-    df (pandas.DataFrame): The input DataFrame.
     """
     print("Missing values (NAs) information:")
     print('-'*40)
@@ -53,7 +44,6 @@ def na_information(df):
     # Count of NAs in each column
     na_counts = df.isna().sum()
     
-    # Create a DataFrame to summarize NAs
     na_table = pd.DataFrame({
         'Column': na_counts.index,
         'Number of NAs': na_counts.values,
@@ -109,7 +99,7 @@ def plot_all_together(df, column_time, column_date, column_country):
     plot_histogram(df, 'day_of_week', 'Distribution of Events by Day of the Week', 
                    'Day of the Week (0=Monday, 6=Sunday)', 'Frequency', bins=7, ax=axs[0, 2])
 
-    # Time series of daily counts (this one is not a histogram)
+    # Time series of daily counts 
     daily_counts = df[column_date].value_counts().sort_index()
     axs[1, 0].plot(daily_counts.index, daily_counts.values, color='maroon')
     axs[1, 0].set_xlabel('Date')
@@ -127,7 +117,6 @@ def plot_all_together(df, column_time, column_date, column_country):
     # Adjust layout and display the plots
     plt.tight_layout()
     plt.show()
-
 
 def city_country_info(df, city_column='city', country_column='country'):
     print(f"Descriptive analysis for city and country columns:")
