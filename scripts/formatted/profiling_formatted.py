@@ -15,24 +15,6 @@ into the distribution of each table in the formatted DuckDB database.
 
 ### Generic ###
 
-def na_information(df):
-    """
-    Returns a table with the count and percentage of missing values in each column of the dataframe.
-    """
-    print("Missing values (NAs) information:")
-    print('-'*40)
-
-    # Count of NAs in each column
-    na_counts = df.isna().sum()
-
-    na_table = pd.DataFrame({
-        'Column': na_counts.index,
-        'Number of NAs': na_counts.values,
-        'Percentage of NAs (%)': ((na_counts.values / len(df)) * 100).round(2)
-    })
-
-    return na_table
-
 def desc_stats(df):
     """
     Prints the descriptive statistics for all columns in the dataframe.
@@ -103,14 +85,37 @@ def plots_spotify(df, column_followers, column_popularity, title=None):
 
 ### TicketMaster ###
 
-def quick_data_prep_ticketmaster(df):
+def quick_format_prep(db_file):
     """
-    Specify format for columns and set missing values as NA.
+    Specify format for date/time columns.
     """
-    df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S', errors='coerce')
-    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d', errors='coerce')
-    df['location'].replace(['N/A, N/A', 'NA'], np.nan, inplace=True)
-    df['price_range'].replace(to_replace=r'.*N/A.*|.*NA.*', value=np.nan, regex=True, inplace=True)
+    
+    # Connect to DuckDB database
+    conn = duckdb.connect(database=db_file, read_only=False)
+    # Fetch all table names in the database
+    tables = conn.execute("SHOW TABLES").fetchall()
+
+    # Iterate over each table and if it is a Spotify table, print its statistics and build its plots
+    for table in tables:
+        table_name = table[0]
+
+        # Extract the source (either "spotify" or "ticketmaster") and date from the table name
+        source, date = table_name.split('_', 1)
+        if source == 'ticketmaster':
+
+          # Load data from the specified table
+          df = conn.execute(f"SELECT * FROM {table_name}").df()
+
+          # Transformations
+          df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S', errors='coerce')
+          df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d', errors='coerce')
+
+          # Drop the existing table and write back the transformed data
+          conn.execute(f"DROP TABLE IF EXISTS {table_name}")
+          conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+
+    # Close connection
+    conn.close()
 
 def plot_country_events(df, column_country, ax):
     """
@@ -220,9 +225,6 @@ def spotify_profiling(duckdb_file_path):
             print('-'*40)
             desc_stats(df)
 
-            # Missing values information
-            print('-'*40)
-            na_information(df)
 
             # Plots
             plots_spotify(df, 'followers', 'popularity', title=f"Table: {table_name}")
@@ -252,7 +254,6 @@ def ticketmaster_profiling(duckdb_file_path):
         if source == 'ticketmaster':
             df = conn.execute(f"SELECT * FROM {table_name}").df()
 
-            quick_data_prep_ticketmaster(df)
             print(f"\nTable: {table_name}")
 
             # Head of table
@@ -266,10 +267,6 @@ def ticketmaster_profiling(duckdb_file_path):
             # Descriptive stats all columns
             print('-'*40)
             desc_stats(df)
-
-            # Missing values information
-            print('-'*40)
-            na_information(df)
 
             # Plots
             plots_ticketmaster(df, 'time', 'date', 'location', title=f"Table: {table_name}")
@@ -301,7 +298,7 @@ def spotify_profiling_app(duckdb_file_path):
             cat_summary = df.describe(include=['object', 'category'])  # Summary of categorical columns
 
             # Create the two columns that will allow to have both tables in same row
-            col1, col2, col3 = st.columns(3)
+            col1, col2 = st.columns(2)
 
             # Displaying numerical summary in the first column
             with col1:
@@ -313,10 +310,7 @@ def spotify_profiling_app(duckdb_file_path):
                 st.write("**Categorical columns summary**")
                 st.dataframe(cat_summary)  
 
-            # Displaying NA information in the third column
-            with col3:
-                st.write("**Missing values information**")
-                st.dataframe(na_information(df))
+            
 
             fig = plots_spotify(df, 'followers', 'popularity', title=f"Table: {table_name}")
             st.pyplot(fig)
@@ -333,7 +327,6 @@ def ticketmaster_profiling_app(duckdb_file_path):
         # Check the source of the table
         if 'ticketmaster' in table_name:
             df = conn.execute(f"SELECT * FROM {table_name}").df()
-            quick_data_prep_ticketmaster(df)
 
             st.subheader(f"Profiling for table: {table_name}")
 
@@ -357,9 +350,6 @@ def ticketmaster_profiling_app(duckdb_file_path):
             with col2:
                 st.write("**Categorical columns summary**")
                 st.dataframe(cat_summary)  
-            
-            st.write("**Missing values information**")
-            st.dataframe(na_information(df))
             
             fig = plots_ticketmaster(df, 'time', 'date', 'location', title=f"Table: {table_name}")
             st.pyplot(fig)

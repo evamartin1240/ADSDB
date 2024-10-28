@@ -18,6 +18,11 @@ from formatted2trusted import formatted2trusted # step 5
 from deduplication import deduplication # step 6.deduplication
 from profiling_formatted import spotify_profiling_app
 from profiling_formatted import ticketmaster_profiling_app
+from profiling_formatted import quick_format_prep
+from consistent_formatting import consistent_formatting
+from misspellings import misspellings
+from profiling_trusted import spotify_profiling_app_trusted
+from profiling_trusted import ticketmaster_profiling_app_trusted
 
 # APP
 
@@ -120,6 +125,7 @@ st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_h
 duckdb_file_path = st.text_input("Input DuckDB database (formatted):","./data/formatted/formatted.duckdb" , key="prof1")
 
 if st.button("Profile"):
+    quick_format_prep(duckdb_file_path)
     spotify_profiling_app(duckdb_file_path)
     ticketmaster_profiling_app(duckdb_file_path)
 
@@ -143,23 +149,66 @@ if st.button("Homogenize and Save Data to Trusted Zone"):
 
 st.markdown("<h3 style='color: #1f77b4;'>6. Data Quality (trusted zone)</h3>", unsafe_allow_html=True)
 
-tab1, tab2 = st.tabs(["Deduplication", "Others"])
+tab1, tab2, tab3 = st.tabs(["Deduplication", "Consistent formatting", "Misspellings"])
 
 # Deduplication Tab
-with tab1:
-    # st.write("##### Deduplication")
-    
+with tab1:    
     # Input field for the DuckDB database file path
-    db_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="db_file_path_dedup")
-    
-    # Button to trigger deduplication
+    db_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="dedup")
+    # Button for deduplication
     if st.button("Run Deduplication"):
         if db_file_path:
             try:
-                # Call the deduplication function
-                deduplication(db_file_path)
+                # deduplication function
+                output_messages = deduplication(db_file_path)
                 st.success("Deduplication process completed successfully.")
+                for message in output_messages: # print each message
+                    st.write(message)
             except Exception as e:
                 st.error(f"An error occurred during deduplication: {e}")
         else:
             st.error("Please provide a valid DuckDB file path.")
+
+# Consistent formatting Tab
+with tab2:    
+    # Input field for the DuckDB database file path
+    db_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="cons_format")
+    # Button for deduplication
+    if st.button("Run formatting"):
+        if db_file_path:
+            try:
+                # consistent formatting function
+                consistent_formatting(db_file_path)
+                st.success("Consistent formatting process completed successfully.")
+            except Exception as e:
+                st.error(f"An error occurred during consistent formatting: {e}")
+        else:
+            st.error("Please provide a valid DuckDB file path.")
+
+# Misspellings Tab
+with tab3:    
+    # Input field for the DuckDB database file path
+    db_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="misspel")
+    # Button for deduplication
+    if st.button("Run misspellings"):
+        if db_file_path:
+            try:
+                # consistent formatting function
+                misspellings(db_file_path)
+                st.success("Consistent formatting process completed successfully.")
+            except Exception as e:
+                st.error(f"An error occurred during consistent formatting: {e}")
+        else:
+            st.error("Please provide a valid DuckDB file path.")
+
+####### PROFILING TRUSTED ########
+
+st.markdown("<h4 style='color: #1f77b4;'> PROFILING - Trusted Zone</h4>", unsafe_allow_html=True)
+st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="prof2")
+
+if st.button("Profile trusted"):
+    spotify_profiling_app_trusted(duckdb_file_path)
+    ticketmaster_profiling_app_trusted(duckdb_file_path)
