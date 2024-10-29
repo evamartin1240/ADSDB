@@ -143,6 +143,7 @@ def process_price_range(price_range):
 def clean_price_range_format(df):
   # Apply the process_price_range function and split the result into two columns
   df[['min_price_EUR', 'max_price_EUR']] = df['price_range'].apply(lambda x: pd.Series(process_price_range(x)))
+  df.drop(columns=['price_range'], inplace=True)
   return df
 
 def consistent_formatting(db_file):

@@ -7,6 +7,8 @@ sys.path.insert(0, './scripts/landing')
 sys.path.insert(0, './scripts/formatted')
 sys.path.insert(0, './scripts/trusted')
 sys.path.insert(0, './scripts/trusted/generic_data_quality')
+sys.path.insert(0, './scripts/exploitation')
+
 
 # Import functions from scripts directory
 from spotify_data_ingestion import ingest_spotify_data # step 1.spotify
@@ -23,6 +25,8 @@ from consistent_formatting import consistent_formatting
 from misspellings import misspellings
 from profiling_trusted import spotify_profiling_app_trusted
 from profiling_trusted import ticketmaster_profiling_app_trusted
+from trusted2exploitation import trusted2exploit
+from trusted2exploitation import add_tables_to_duckdb
 
 # APP
 
@@ -112,7 +116,7 @@ if st.button("Convert Data"):
     if persdir_in and formdir_out:
         # Call the landing2formatted function
         landing2formatted(persdir_in, formdir_out)
-        st.success("Data successfully converted to DuckDB format in the formatted landing zone.")
+        st.success("Data successfully converted to DuckDB format in the formatted zone.")
     else:
         st.error("Please provide both paths.")
 
@@ -141,7 +145,7 @@ if st.button("Homogenize and Save Data to Trusted Zone"):
     if duckdb_file_path and trusted_dir:
         # Call the formatted2trusted function
         formatted2trusted(duckdb_file_path, trusted_dir)
-        st.success("Data successfully homogenized and saved to the trusted landing zone.")
+        st.success("Data successfully homogenized and saved to the trusted zone.")
     else:
         st.error("Please provide both paths.")
 
@@ -210,5 +214,35 @@ st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_h
 duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="prof2")
 
 if st.button("Profile trusted"):
+    spotify_profiling_app_trusted(duckdb_file_path)
+    ticketmaster_profiling_app_trusted(duckdb_file_path)
+
+####### Step 7: Trusted to Exploitation #######
+
+st.markdown("<h3 style='color: #1f77b4;'>7. Trusted to Exploitation</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="step7a")
+exploit_dir = st.text_input("Output data path (exploitation):","./data/exploitation", key="step7b")
+
+if st.button("Pass from Trusted Exploitation Zone"):
+    if duckdb_file_path and trusted_dir:
+        # Call the formatted2trusted function
+        trusted2exploit(duckdb_file_path, exploit_dir)
+        exploit_duckdb_path = os.path.join(exploit_dir, 'exploitation.duckdb')
+        add_tables_to_duckdb(exploit_duckdb_path)
+        st.success("Exploitation zone database successfully created.")
+    else:
+        st.error("Please provide both paths.")
+
+####### PROFILING EXPLOITATION ########
+
+st.markdown("<h4 style='color: #1f77b4;'> PROFILING - Exploitation Zone</h4>", unsafe_allow_html=True)
+st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="prof3")
+
+if st.button("Profile exploitation database"):
     spotify_profiling_app_trusted(duckdb_file_path)
     ticketmaster_profiling_app_trusted(duckdb_file_path)
