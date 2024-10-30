@@ -1,21 +1,36 @@
 # ADSDB <a href="https://github.com/evamartin1240/ADSDB"><img src="others/spotify.png" align="right" height="25" /></a> <a href="https://github.com/evamartin1240/ADSDB"><img src="others/ticketmaster.png" align="right" height="20" /></a>
 
-## How to run this program
+## Data Management Backbone
 
-### Set up your Python environment
+This repository contains the data management backbone for our project. 
+
+We've implemented two methods for running the operations environment:
+
+1. Web Interface: Access the pipeline through the web interface.
+2. Command Line (CLI): Run all operations directly from the terminal.
+
+### 1. Web Interface
+
+
+
+### 2. Command Line (CLI)
+
+If you prefer to run the program from the command line, do as follows. This way is recommended for debugging as you will get information printed on the command line. 
+
+#### Set up your Python environment
 
 First, you will need a working Python 3 installation. Then, clone this repository to access the code.
 
 Setting up your Python environment depends on your operating system.
 
-#### MacOS/Linux
+##### MacOS/Linux
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### Windows
+##### Windows
 
 ```batch
 python3 -m venv venv
@@ -28,17 +43,9 @@ Now, recursively install all the dependencies for this program.
 pip install -r requirements.txt
 ```
 
-### Run program
+##### MacOS/Linux
 
-There are two ways to run this program.
-
-#### GUI
-
-Simply run `streamlit run app.py`. This will open the GUI app on your browser. Then, follow the app and click the buttons to perform every step in the pipeline.
-
-#### CLI
-
-If you prefer to run the program from the command line, do as follows. This way is recommended for debugging as you will get information printed on the command line. This will execute all the scripts in the pipeline, requesting the user for paths to the data. Note that this will not produce profilings, only the data warehouse. To visualize profilings, use the app.
+Once all the environment is set, you are ready to execute all the scripts in the pipeline, requesting the user for paths to the data. Note that this will not produce profilings. To visualize profiling steps, use the app.
 
 ##### MacOS/Linux
 
@@ -54,52 +61,5 @@ run.bat
 
 > **Note:** We are aware the data ingestion step is cumbersome due to rate limits on the Spotify and Ticketmaster APIs. For this reason, we have provided two datasets collected on 10/10/2024 and two more on 19/10/2024. If you wish to avoid fetching new information from the API and use these datasets instead: On the GUI app, simply skip the data ingestion step and continue with the rest. On the CLI, execute the `run.sh` or `run.bat` command with --skip-ingestion. (Example: `./run.sh --skip-ingestion`)
 
-## Step 1: Data Ingestion
-
-When running the data ingestion scripts for both TicketMaster and Spotify sources,
-you will be prompted for specific input details. You will need to provide the
-following:
-
-1. The path to the input `.txt` file containing artist names
-2. The path to the temporal directory where the output `.json` file will be stored
-3. The name of the output `.json` file including a version number
-4. Your TicketMaster/Spotify API key.
-
-Once all inputs are provided, the script will save the data and confirm the
-location of the saved JSON file.
-
-**TicketMaster:**
-
-```bash
-$ python scripts/data_ingestion/ticketmaster_data_ingestion.py
-```
 
 <img src="others/salida.gif">
-
-**Spotify:**
-
-```bash
-$ python scripts/data_ingestion/spotify_data_ingestion.py
-```
-
-<img src="others/salida.gif">
-
-## Step 2: Temporal Landing Zone
-
-```bash
-$ python scripts/landing/raw2temporal.py
-```
-
-## Step 3: Persistent Landing Zone
-
-```bash
-$ python scripts/landing/temporal2persistent.py
-```
-
-<img src="others/salida.gif">
-
-## Step 4: Formatted Zone
-
-```bash
-$ python scripts/landing/landing2formatted.py
-```
