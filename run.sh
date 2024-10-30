@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
 set -e
 
-# Activate the Python virtual environment
+
+
 source ./venv/bin/activate
+
+
 
 # List of Python files to run
 python_files=(
@@ -20,30 +22,40 @@ python_files=(
     "./scripts/exploitation/trusted2exploitation.py"
 )
 
-# Check for --skip-ingestion flag
+
+
 if [[ "$1" == "--skip-ingestion" ]]; then
-    # Remove the first two files if the flag is present
+    # Remove the first two files if --skip-ingestion
     python_files=("${python_files[@]:2}")
 fi
 
-# Function to display CPU and memory usage
-function show_system_usage {
-    echo -e "\n--- System Usage ---"
-    echo "CPU Usage:"
-    top -bn1 | grep "Cpu(s)" | \
-       sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
-       awk '{print 100 - $1"% CPU used"}'
-    echo "Memory Usage:"
-    free -h | awk '/^Mem:/ {print $3 " used out of " $2}'
-}
 
-# Run each Python script and display system usage after each one
+
+# Open a new terminal instance with top
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS Terminal
+    osascript -e 'tell application "Terminal" to do script "top"'
+else
+    # Linux Terminals
+    if command -v gnome-terminal &> /dev/null; then
+        gnome-terminal -- bash -c "top; exec bash" &
+    elif command -v konsole &> /dev/null; then
+        konsole -e bash -c "top; exec bash" &
+    elif command -v xfce4-terminal &> /dev/null; then
+        xfce4-terminal -e bash -c "top; exec bash" &
+    elif command -v xterm &> /dev/null; then
+        xterm -e "top; bash" &
+    else
+        echo "No suitable terminal found to run top."
+        exit 1
+    fi
+fi
+
+
+
 for file in "${python_files[@]}"; do
     echo -e "\nRunning $file..."
     python "$file"
-    show_system_usage
-    sleep 2  # Optional delay between scripts
 done
 
-# Deactivate the virtual environment
 deactivate
