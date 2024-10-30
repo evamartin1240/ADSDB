@@ -34,11 +34,11 @@ There are two ways to run this program.
 
 #### GUI
 
-Simply run `streamlit run app.py`. This will open the GUI app on your browser.
+Simply run `streamlit run app.py`. This will open the GUI app on your browser. Then, follow the app and click the buttons to perform every step in the pipeline.
 
 #### CLI
 
-If you prefer to run the program from the command line, do as follows. This way is recommended for debugging as you will get information printed on the command line.
+If you prefer to run the program from the command line, do as follows. This way is recommended for debugging as you will get information printed on the command line. This will execute all the scripts in the pipeline, requesting the user for paths to the data. Note that this will not produce profilings, only the data warehouse. To visualize profilings, use the app.
 
 ##### MacOS/Linux
 
