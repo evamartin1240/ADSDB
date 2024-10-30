@@ -2,13 +2,14 @@ import sys
 import streamlit as st
 import duckdb
 import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
 
 sys.path.insert(0, './scripts/formatted')
 
 from profiling_formatted import desc_stats
 from profiling_formatted import plots_spotify
 from profiling_formatted import plots_ticketmaster
+from profiling_formatted import plot_histogram
 
 def na_information(df):
     """
@@ -112,7 +113,14 @@ def ticketmaster_profiling_trusted(duckdb_file_path):
             na_information(df)
 
             # Plots
-            plots_ticketmaster(df, 'time', 'date', 'location', title=f"Table: {table}")
+            plots_ticketmaster(df, 'time', 'date', 'country', title=f"Table: {table}")
+
+            # Min/max prices histograms
+            fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+            plot_histogram(df, 'min_price_EUR', 'Distribution of Minimum Ticket Prices',
+                              'Price', 'Frequency', bins=40, ax=axes[0])
+            plot_histogram(df, 'max_price_EUR', 'Distribution of Maximum Ticket Prices',
+                   'Price', 'Frequency', bins=40, ax=axes[1])
 
     conn.close()
 
@@ -202,6 +210,14 @@ def ticketmaster_profiling_app_trusted(duckdb_file_path):
             st.dataframe(na_information(df))
             
             fig = plots_ticketmaster(df, 'time', 'date', 'country', title=f"Table: {table}")
+            st.pyplot(fig)
+
+            # Add Min/max prices histograms
+            fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+            plot_histogram(df, 'min_price_EUR', 'Distribution of Minimum Ticket Prices',
+                              'Price', 'Frequency', bins=40, ax=axes[0])
+            plot_histogram(df, 'max_price_EUR', 'Distribution of Maximum Ticket Prices',
+                   'Price', 'Frequency', bins=40, ax=axes[1])
             st.pyplot(fig)
 
 if __name__ == "__main__":

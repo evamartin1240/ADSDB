@@ -27,6 +27,7 @@ from profiling_trusted import spotify_profiling_app_trusted
 from profiling_trusted import ticketmaster_profiling_app_trusted
 from trusted2exploitation import trusted2exploit
 from trusted2exploitation import add_tables_to_duckdb
+from profiling_exploitation import profiling_explo_app
 
 # APP
 
@@ -241,8 +242,7 @@ st.markdown("<h4 style='color: #1f77b4;'> PROFILING - Exploitation Zone</h4>", u
 st.markdown("<hr style='margin: 0; border: 1px solid #1f77b4;'>", unsafe_allow_html=True)
 
 # Input fields for the DuckDB file path and the trusted directory
-duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/trusted/trusted.duckdb" , key="prof3")
+duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/exploitation/exploitation.duckdb" , key="prof3")
 
 if st.button("Profile exploitation database"):
-    spotify_profiling_app_trusted(duckdb_file_path)
-    ticketmaster_profiling_app_trusted(duckdb_file_path)
+    profiling_explo_app(duckdb_file_path)
