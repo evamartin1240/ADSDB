@@ -11,7 +11,7 @@ We've implemented two methods for running the operations environment:
 
 ## 1. Web Interface
 
-
+<img src="others/salida1.gif">
 
 ## 2. Command Line (CLI)
 
