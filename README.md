@@ -6,16 +6,17 @@ This repository contains the data management backbone for our project.
 
 We've implemented two methods for running the operations environment:
 
-1. **Web Interface**: Access the pipeline through the web interface.
+1. **Web Interface**: Access the pipeline through our [web interface](https://evamartin1240-adsdb-app-ofogzr.streamlit.app/).
+
 2. **Command Line (CLI)**: Run all operations directly from the terminal.
 
-## 1. Web Interface
+## Web Interface
 
 <a href="https://evamartin1240-adsdb-app-ofogzr.streamlit.app/">
   <img src="others/cap_app.png">
 </a>
 
-## 2. Command Line (CLI)
+## Command Line (CLI)
 
 If you prefer to run the program from the command line, do as follows. This way is recommended for debugging as you will get information printed on the command line. 
 
