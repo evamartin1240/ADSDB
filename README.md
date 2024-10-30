@@ -11,7 +11,9 @@ We've implemented two methods for running the operations environment:
 
 ## 1. Web Interface
 
-<img src="others/cap_app.png">
+<a href="https://evamartin1240-adsdb-app-ofogzr.streamlit.app/">
+  <img src="others/cap_app.png" alt="App Screenshot" width="600">
+</a>
 
 ## 2. Command Line (CLI)
 
