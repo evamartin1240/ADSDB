@@ -1,2 +1,6 @@
 duckdb
+<<<<<<< HEAD
+=======
+streamlit
+>>>>>>> efa1fd6102e81b015374bc2b9dd1996c44dd330d
 matplotlib
