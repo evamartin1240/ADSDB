@@ -52,6 +52,8 @@ If you prefer to run the program from the command line, do as follows. This way 
 run.bat
 ```
 
+> **Note:** We are aware the data ingestion step is cumbersome due to rate limits on the Spotify and Ticketmaster APIs. For this reason, we have provided two datasets collected on 10/10/2024 and two more on 19/10/2024. If you wish to avoid fetching new information from the API and use these datasets instead: On the GUI app, simply skip the data ingestion step and continue with the rest. On the CLI, execute the `run.sh` or `run.bat` command with --skip-ingestion. (Example: `./run.sh --skip-ingestion`)
+
 ## Step 1: Data Ingestion
 
 When running the data ingestion scripts for both TicketMaster and Spotify sources,
