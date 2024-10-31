@@ -83,6 +83,13 @@ def ticketmaster_profiling_trusted(duckdb_file_path):
     # Connect to the DuckDB database
     conn = duckdb.connect(duckdb_file_path)
 
+    # Update max_price_EUR values greater than 10000 to NA
+    conn.execute("""
+        UPDATE ticketmaster
+        SET max_price_EUR = NULL
+        WHERE max_price_EUR > 10000
+    """)
+
     # Fetch all table names in the database
     tables = ['spotify', 'ticketmaster']
 
@@ -175,6 +182,13 @@ def ticketmaster_profiling_app_trusted(duckdb_file_path):
     conn = duckdb.connect(duckdb_file_path)
     tables = ['spotify', 'ticketmaster']
 
+    # Update max_price_EUR values greater than 10000 to NA
+    conn.execute("""
+        UPDATE ticketmaster
+        SET max_price_EUR = NULL
+        WHERE max_price_EUR > 10000
+    """)
+    
     for table in tables:
 
         # Check the source of the table
