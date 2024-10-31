@@ -82,17 +82,3 @@ if __name__ == "__main__":
     
     # Run function
     ingest_spotify_data(client_id, client_secret, artist_names, raw_data_path, out_filename)
-
-    """
-    artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/LISTA_ARTISTAS.txt'
-    raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw_PROB'
-    out_filename = 'spotify_dataV1.json'
-    # Keys for the Spotify API: 
-    client_id = '62f9499b009c49d8b6363890028ce155'
-    client_secret = '8b1ec143c4d94ea6aa3920b3b8bf2ee6'
-    with open(artist_names_file, 'r') as file: 
-        artist_names = [line.strip() for line in file]
-    # Run function
-    ingest_spotify_data(client_id, client_secret, raw_data_path, out_filename, artist_names)
-    # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif
-    """
