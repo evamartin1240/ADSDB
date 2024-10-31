@@ -62,6 +62,4 @@ def landing2formatted(persdir_in, formdir_out):
 if __name__ == "__main__":
     persdir_in = input("Persistent landing directory path (input): ")
     formdir_out = input("Formatted landing directory path (output): ")
-    # persdir_in = "/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/landing/persistent"
-    # formdir_out = "/Users/evamartin/Desktop/MDS/curs1/ADSDB_copia/data/probando_formatted"
     landing2formatted(persdir_in, formdir_out)

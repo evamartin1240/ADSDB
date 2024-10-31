@@ -27,7 +27,3 @@ if __name__ == "__main__":
     rawdir_in = input("Raw directory path (input): ")
     tempdir_out = input("Temporal landing directory path (output): ")
     raw2temporal(rawdir_in, tempdir_out)
-
-    # rawdir_in = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'
-    # tempdir_out = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/landing/temporal'
-

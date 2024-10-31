@@ -44,7 +44,3 @@ if __name__ == "__main__":
     tempdir_in = input("Temporal landing directory path (input): ")
     persistdir_out = input("Persistent landing directory path (output): ")
     temporal2persistent(tempdir_in, persistdir_out)
-
-    # tempdir_in = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/landing/temporal'
-    # persistdir_out = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/landing/persistent'
-
