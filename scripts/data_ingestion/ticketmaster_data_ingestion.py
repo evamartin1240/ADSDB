@@ -88,9 +88,3 @@ if __name__ == "__main__":
     
     # Run function
     ingest_ticketmaster_data(api_key, artist_names, raw_data_path, out_filename)
-
-    # artist_names_file = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/artist_names_subset.txt'
-    # raw_data_path = '/Users/evamartin/Desktop/MDS/curs1/ADSDB/data/raw'
-    # out_filename = 'ticketmaster_dataV1.json'
-    # api_key = 'SR6gANwlcVVGnF5DIhkAh38oaRf3a7PR'
-    # ffmpeg -i name.mov -vf "fps=10,scale=600:-1:flags=lanczos" /Users/evamartin/Desktop/MDS/curs1/ADSDB/others/salida.gif
