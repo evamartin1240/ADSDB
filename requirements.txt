@@ -2,3 +2,4 @@ duckdb
 streamlit
 matplotlib
 requests
+sentence_transformers
