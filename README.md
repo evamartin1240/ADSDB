@@ -64,4 +64,4 @@ run.bat
 
 > **Note:** We are aware the data ingestion step is cumbersome due to rate limits on the Spotify and Ticketmaster APIs. For this reason, we have provided two datasets collected on 10/10/2024 and two more on 19/10/2024. If you wish to avoid fetching new information from the API and use these datasets instead: On the GUI app, simply skip the data ingestion step and continue with the rest. On the CLI, execute the `run.sh` or `run.bat` command with --skip-ingestion. (Example: `./run.sh --skip-ingestion`)
 
-
+> **Note:** We have provided another flag to skip to the analytical backbone directly. On the CLI, execute the `run.sh` or `run.bat` command with --analysis-only. (Example: `./run.sh --analysis-only`). This assumes you have a dataset prepared in the exploitation zone.

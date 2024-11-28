@@ -12,6 +12,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
+
 def plot_clusters(genres, embeddings, cluster_labels, n_components=2):
     """
     Visualizes word embeddings with cluster labels in 2D or 3D.
@@ -56,6 +57,10 @@ def plot_clusters(genres, embeddings, cluster_labels, n_components=2):
     plt.show()
 
 def generate_embeddings_and_predict(genres, model = 'all-MiniLM-L6-v2', n_clusters = 6):
+    """
+    Generate word embeddings for a list of genres using the model provided
+    and cluster them with K-means
+    """
     model = SentenceTransformer(model)
 
     embeddings = model.encode(genres)
@@ -66,7 +71,7 @@ def generate_embeddings_and_predict(genres, model = 'all-MiniLM-L6-v2', n_cluste
     labels = kmeans.fit_predict(embeddings)
 
     # Print cluster labels
-    for genre, label in zip(unique_genres, labels):
+    for genre, label in zip(genres, labels):
         print(f"Genre: {genre}, Cluster: {label}")
 
     return labels, embeddings
@@ -74,9 +79,9 @@ def generate_embeddings_and_predict(genres, model = 'all-MiniLM-L6-v2', n_cluste
 
 def transform_ids(L):
     """
-    Transform a list with integers and sublists into a list with integers
-    and unique IDs for normalized sublists.
+    Transform a list with integers and sublists into a list with unique IDs
     """
+
     sublist_to_id = {}  # Dictionary to map sublists to unique IDs
     id_counter = 1      # Counter for unique IDs
 
@@ -97,20 +102,12 @@ def transform_ids(L):
 
     return transformed
 
-if __name__ == "__main__":
-
-    conn = duckdb.connect("/home/maru/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb")
-
-    df = conn.execute("SELECT * FROM sandbox").df()
-
-    conn.close()
-
-    genres = df.loc[:,"genres"].tolist()
+def cluster_genres(genres):
 
     # Flatten the arrays and create a set of all unique strings
     unique_genres = set()
     for row in genres:
-        unique_genres.update(row) # row[0] contains the array from the column
+        unique_genres.update(row)
 
     unique_genres = list(unique_genres)
 
@@ -129,68 +126,47 @@ if __name__ == "__main__":
     # Map the list
     transformed_new_genres = transform_ids(new_genres)
 
-    #plot_clusters(unique_genres, embeddings, labels, n_components=2)
+    plot_clusters(unique_genres, embeddings, labels, n_components=2)
+
+    return transformed_new_genres
 
 
 
-    df["genres"] = transformed_new_genres
 
-    ### ---- ALL UP UNTIL THIS POINT BELONGS IN analytical_backbone/feature_engineering
-    ###
-    ### Then, we must perform labelling -- in our case I think we can assign manual labels to each of the clusters (currently just numbers)
-    ###
-    ### Finally data preparation (outliers, missing values, etc)
-    ###
-    ### Now I will skip directly to model generation
-    ###
+def feature_generation(db_file):
+    """
+
+    """
+    # List to store the output messages in order to print them later
+    output = []
+
+    # Connect to the DuckDB database
+    conn = duckdb.connect(database=db_file, read_only=False)
+
+    df = conn.execute("SELECT * FROM sandbox").df()
+
+    genres = df.loc[:,"genres"].tolist()
+
+    clustered_genres = cluster_genres(genres)
+
+    df["genres"] = clustered_genres
+
+    output.append(f"There are {len(set(clustered_genres))} genres in the sandbox after clustering.")
+
+    conn.execute(f"DROP TABLE IF EXISTS sandbox")
+    conn.execute(f"CREATE TABLE sandbox AS SELECT * FROM df")
+
+    # Close the connection
+    conn.close()
+
+    return output
 
 
-    # Assuming 'df' is your pandas dataframe
 
-    # Prepare the features and target
-    X = df.drop(columns=['followers', 'artist'])  # Features (popularity, genres, avg_min_price, avg_max_price)
-    y = df['followers']  # Target (followers)
+if __name__ == "__main__":
+    duckdb_file_path = input("Path to DuckDB sandbox (input): ")
+    #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb"
 
-    # Fill missing values for avg_min_price and avg_max_price with their mean (you can adjust this strategy)
-    X['avg_min_price'].fillna(X['avg_min_price'].mean(), inplace=True)
-    X['avg_max_price'].fillna(X['avg_max_price'].mean(), inplace=True)
-
-    # Split the data into training and testing sets (75%/25% split)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
-
-    # Initialize the RandomForestRegressor
-    from sklearn.ensemble import RandomForestRegressor
-    rf = RandomForestRegressor(n_estimators=100, random_state=42)
-
-    # Train the model
-    log_y_train = np.log1p(y_train)  # log1p is log(x + 1), handles 0s gracefully
-    rf.fit(X_train, y_train)
-
-    # Predict on the test set
-    y_pred = rf.predict(X_test)
-
-    # Create the scatterplot of real vs predicted values
-    plt.figure(figsize=(8, 6))
-
-    # Apply log scaling (make sure to add a small value to avoid log(0))
-    log_y_test = np.log1p(y_test)  # log1p is log(x + 1), handles 0s gracefully
-    log_y_pred = np.log1p(y_pred)
-
-    # Scatter plot with log scaled values
-    plt.scatter(log_y_test, log_y_pred, color='blue', alpha=0.6)
-
-    # Add a line for perfect predictions (y = x)
-    plt.plot([log_y_test.min(), log_y_test.max()], [log_y_test.min(), log_y_test.max()], color='red', linestyle='--', lw=2)
-
-    # Label the axes
-    plt.xlabel('Real Followers')
-    plt.ylabel('Predicted Followers')
-    plt.title('Real vs Predicted Followers')
-
-    # Show the plot
-    plt.show()
-
-    # Calculate RMSEP (Root Mean Squared Error of Prediction)
-    rmse = np.sqrt(mean_squared_error(log_y_test, log_y_pred))
-
-    print(f'RMSEP: {rmse}')
+    out = feature_generation(duckdb_file_path)
+    for message in out:
+        print(message)

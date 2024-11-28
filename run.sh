@@ -20,6 +20,12 @@ python_files=(
     "./scripts/trusted/generic_data_quality/consistent_formatting.py"
     "./scripts/trusted/generic_data_quality/misspellings.py"
     "./scripts/exploitation/trusted2exploitation.py"
+    "./scripts/analytical_backbone/sandbox/sandbox.py"
+    "./scripts/analytical_backbone/feature_engineering/feature_generation.py"
+    "./scripts/analytical_backbone/feature_engineering/labelling.py"
+    "./scripts/analytical_backbone/feature_engineering/data_preparation.py"
+    "./scripts/analytical_backbone/model_generation/model_generation.py"
+
 )
 
 
@@ -28,6 +34,12 @@ if [[ "$1" == "--skip-ingestion" ]]; then
     # Remove the first two files if --skip-ingestion
     python_files=("${python_files[@]:2}")
 fi
+
+if [[ "$1" == "--analysis-only" ]]; then
+    # Remove the first ten files if --analysis-only
+    python_files=("${python_files[@]:10}")
+fi
+
 
 
 
