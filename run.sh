@@ -22,7 +22,6 @@ python_files=(
     "./scripts/exploitation/trusted2exploitation.py"
     "./scripts/analytical_backbone/sandbox/sandbox.py"
     "./scripts/analytical_backbone/feature_engineering/feature_generation.py"
-    "./scripts/analytical_backbone/feature_engineering/labelling.py"
     "./scripts/analytical_backbone/feature_engineering/data_preparation.py"
     "./scripts/analytical_backbone/model_generation/model_generation.py"
 

@@ -37,6 +37,8 @@ def exploitation2sandbox(duckdb_file_path, sandbox_dir):
 
 if __name__ == "__main__":
     duckdb_file_path = input("Input DuckDB database (exploitation): ")
+    sandbox_dir = input("Output directory (sandbox): ")
+
     #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/exploitation/exploitation.duckdb"
     #sandbox_dir = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox"
     exploitation2sandbox(duckdb_file_path, sandbox_dir)
