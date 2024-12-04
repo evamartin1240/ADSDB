@@ -2,11 +2,13 @@
 #
 
 import duckdb
+import os
 import pandas
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
+import pickle
 
 
 def plot_y_test_y_pred(y_test, y_pred):
@@ -26,14 +28,14 @@ def plot_y_test_y_pred(y_test, y_pred):
 
 
 
-def model_generation(db_file):
+def model_generation(db_file, model_dir):
     # List to store the output messages in order to print them later
     output = []
 
     # Connect to the DuckDB database
     conn = duckdb.connect(database=db_file)
 
-    df = conn.execute("SELECT * FROM sandbox").df()
+    df = conn.execute("SELECT * FROM feature_generation").df()
 
     # Prepare the features and target
     X = df.drop(columns=['followers', 'artist'])  # Features (popularity, genres, avg_min_price, avg_max_price)
@@ -65,14 +67,23 @@ def model_generation(db_file):
 
     output.append(f"Root Mean Squared Error for the external validation is {rmse}")
 
+    # Save the model to a file
+    model_fullpath = os.path.join(model_dir, 'random_forest_model.pk1')
+    with open(model_fullpath, 'wb') as file:
+        pickle.dump(rf, file)
+
+    output.append(f"Random Forest model written to successfully written to {model_fullpath}")
+
     return output
 
 
 
 if __name__ == "__main__":
-    duckdb_file_path = input("Path to DuckDB sandbox (input): ")
+    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
+    model_dir = input("Path to model directory (output): ")
+
     #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb"
 
-    out = model_generation(duckdb_file_path)
+    out = model_generation(duckdb_file_path, model_dir)
     for message in out:
         print(message)

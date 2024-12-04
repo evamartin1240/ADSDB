@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import duckdb
 import pandas
 from sentence_transformers import SentenceTransformer
@@ -133,7 +134,7 @@ def cluster_genres(genres):
 
 
 
-def feature_generation(db_file):
+def feature_generation(db_file, engineering_dir):
     """
 
     """
@@ -143,7 +144,9 @@ def feature_generation(db_file):
     # Connect to the DuckDB database
     conn = duckdb.connect(database=db_file, read_only=False)
 
-    df = conn.execute("SELECT * FROM sandbox").df()
+    df = conn.execute("SELECT * FROM data_preparation").df()
+
+    conn.close()
 
     genres = df.loc[:,"genres"].tolist()
 
@@ -153,20 +156,27 @@ def feature_generation(db_file):
 
     output.append(f"There are {len(set(clustered_genres))} genres in the sandbox after clustering.")
 
-    conn.execute(f"DROP TABLE IF EXISTS sandbox")
-    conn.execute(f"CREATE TABLE sandbox AS SELECT * FROM df")
+    # Path for the new sandbox database
+    generation_duckdb_path = os.path.join(engineering_dir, 'feature_generation.duckdb')
 
-    # Close the connection
-    conn.close()
+    # Connect to the new sandbox database
+    con_generation= duckdb.connect(database=generation_duckdb_path)
+
+    con_generation.execute("CREATE TABLE feature_generation AS SELECT * FROM df")
+
+    con_generation.close()
+
+    print(f"DuckDB feature generation database successfully saved in: {generation_duckdb_path}")
 
     return output
 
 
 
 if __name__ == "__main__":
-    duckdb_file_path = input("Path to DuckDB sandbox (input): ")
+    duckdb_file_path = input("Path to DuckDB data preparation database (input): ")
+    engineering_dir = input("Output directory (feature engineering): ")
     #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb"
 
-    out = feature_generation(duckdb_file_path)
+    out = feature_generation(duckdb_file_path, engineering_dir)
     for message in out:
         print(message)
