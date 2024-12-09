@@ -3,3 +3,4 @@ streamlit
 matplotlib
 requests
 sentence_transformers
+tqdm
