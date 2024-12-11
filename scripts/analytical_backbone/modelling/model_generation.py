@@ -161,43 +161,36 @@ def model_generation(db_file, model_dir, regressor, param_grid, n_splits=5, n_it
     """
     Generalized function to perform model training, hyperparameter tuning, and external validation.
 
-    Parameters:
     - db_file: The DuckDB database file.
     - model_dir: Directory where the model will be saved.
-    - regressor: The regression model (e.g., RandomForestRegressor, SVR).
-    - param_grid: Dictionary of hyperparameters for the chosen regressor.
+    - regressor: The regression model (RandomForestRegressor, LinearRegression).
+    - param_grid: Dictionary of hyperparameters for the chosen regressor (obtained from params.yaml).
     - n_splits: Number of folds for cross-validation (default is 5).
     - n_iter: Number of iterations for RandomizedSearchCV (default is 50).
-
-    Returns:
-    - output: List of messages (including best parameters and RMSE results).
     """
 
-    # List to store the output messages in order to print them later
     output = []
 
-    # Connect to the DuckDB database
     conn = duckdb.connect(database=db_file)
 
-    # Load data from "train" and "extval" tables
     train_df = conn.execute("SELECT * FROM train").df()
     extval_df = conn.execute("SELECT * FROM extval").df()
 
-    # Prepare the features and target for training
+    # features and target for training
     X_train = train_df.drop(columns=['followers', 'artist'])  # Features
     y_train = np.log1p(train_df['followers'])  # Target
 
-    # Prepare the features and target for external validation
+    # features and target for external validation
     X_extval = extval_df.drop(columns=['followers', 'artist'])  # Features
     y_extval = np.log1p(extval_df['followers'])  # Target
 
-    # Initialize RandomizedSearchCV with parallelization and cross-validation
+    # Initialize RandomizedSearchCV for cross-validation
     random_search = RandomizedSearchCV(
-        estimator=regressor,  # Use the passed regressor
-        param_distributions=param_grid,  # Use the passed param grid
-        n_iter=n_iter,  # Number of random combinations to try
-        cv=n_splits,  # Cross-validation splits
-        scoring='neg_root_mean_squared_error',  # RMSE (negative because higher is better for scorers)
+        estimator=regressor,
+        param_distributions=param_grid,
+        n_iter=n_iter,
+        cv=n_splits,
+        scoring='neg_root_mean_squared_error',  # Error measure (RMSE)
         n_jobs=-1,  # Use all available CPU cores for parallelization
         random_state=42,
         verbose=1
@@ -220,14 +213,7 @@ def model_generation(db_file, model_dir, regressor, param_grid, n_splits=5, n_it
     # Create a scatterplot
     plot_y_test_y_pred(y_extval, y_extval_pred)
 
-    # Save the optimized model to a file
-    model_fullpath = os.path.join(model_dir, 'optimized_model.pk1')
-    with open(model_fullpath, 'wb') as file:
-        pickle.dump(best_model, file)
-
-    output.append(f"Optimized model successfully written to {model_fullpath}")
-
-    return output
+    return output, best_model
 
 
 
@@ -246,9 +232,9 @@ def load_param_grid(model_name, param_file):
 def get_model_instance(model_name):
     """Return an instance of the corresponding model."""
     if model_name == "RandomForestRegressor":
-        return RandomForestRegressor(random_state=42)
+        return RandomForestRegressor(random_state=123)
     elif model_name == "GradientBoostingRegressor":
-        return GradientBoostingRegressor(random_state=42)
+        return GradientBoostingRegressor(random_state=123)
     elif model_name == "SVR":
         return SVR()
     elif model_name == "LinearRegression":
@@ -271,7 +257,12 @@ def model_generation_wrapper(db_file, model_dir, params_path, n_splits=5, n_iter
     - n_iter: Number of random combinations for RandomizedSearchCV
     - param_file: YAML file containing parameter grids
     """
-    for model_name in ["RandomForestRegressor", "GradientBoostingRegressor", "LinearRegression", "GaussianNB"]:
+    for model_name in ["LinearRegression", "GradientBoostingRegressor", "RandomForestRegressor"]:
+
+        messages = []
+
+        messages.append(f"Fitting a {model_name}...")
+
         # Load the parameter grid for the chosen model
         param_grid = load_param_grid(model_name, params_path)
 
@@ -280,17 +271,25 @@ def model_generation_wrapper(db_file, model_dir, params_path, n_splits=5, n_iter
 
         # Call the original model generation function
         #return model_generation(db_file, model_dir, n_splits, n_iter, model, param_grid)
-        model_generation(db_file, model_dir, model, param_grid)
+        [out_messages, modelobj] = model_generation(db_file, model_dir, model, param_grid)
 
+        messages.extend(out_messages)
+
+        # Save the optimized model to a file
+        model_fullpath = os.path.join(model_dir, f'{model_name}_model.pk1')
+        with open(model_fullpath, 'wb') as file:
+            pickle.dump(modelobj, file)
+
+        messages.append(f"Optimized model successfully written to {model_fullpath}")
+
+        for message in messages:
+            print(message)
 
 
 if __name__ == "__main__":
-    #duckdb_train_file_path = input("Path to DuckDB split database (input): ")
-    #model_dir = input("Path to model directory (output): ")
-
-    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/data_split/split.duckdb"
-    params_path = "/home/maru/upc-mds/ADSDB/params.yaml"
-    model_dir = "/home/maru/"
+    duckdb_file_path = input("Path to DuckDB split database (input): ")
+    params_path = input("Path to params.yaml (model parameters): ")
+    model_dir = input("Path to model directory (output): ")
 
     out = model_generation_wrapper(
         db_file=duckdb_file_path,
@@ -298,7 +297,3 @@ if __name__ == "__main__":
         params_path=params_path
         )
 
-
-    #out = model_generation(duckdb_file_path, model_dir, params_path, RandomForestRegressor(random_state=42), param_grid)
-    for message in out:
-        print(message)

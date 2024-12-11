@@ -24,6 +24,10 @@ def data_preparation(db_file, engineering_dir):
 
     output.append(f"Price data imputed.")
 
+    df = df[df['genres'].apply(lambda x: len(x) > 0)] # remove the artists that do not have any genre
+
+    output.append(f"Removed artists with no genre.")
+
     # Create the data preparation directory if it doesn't exist
     if not os.path.exists(engineering_dir):
         os.makedirs(engineering_dir)
@@ -34,6 +38,7 @@ def data_preparation(db_file, engineering_dir):
     # Connect to the new sandbox database
     con_preparation = duckdb.connect(database=preparation_duckdb_path)
 
+    con_preparation.execute("DROP TABLE IF EXISTS data_preparation")
     con_preparation.execute("CREATE TABLE data_preparation AS SELECT * FROM df")
 
     con_preparation.close()

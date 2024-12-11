@@ -34,6 +34,9 @@ def data_preparation(db_file, split_dir):
     # Connect to the new sandbox database
     con = duckdb.connect(database=split_duckdb_path)
 
+    con.execute("DROP TABLE IF EXISTS train")
+    con.execute("DROP TABLE IF EXISTS extval")
+
     con.execute("CREATE TABLE train AS SELECT * FROM train_df")
     con.execute("CREATE TABLE extval AS SELECT * FROM extval_df")
 
@@ -46,11 +49,8 @@ def data_preparation(db_file, split_dir):
 
 if __name__ == "__main__":
 
-    #duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
-    #split_dir = input("Output directory (data split): ")
-
-    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
-    split_dir = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/data_split/"
+    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
+    split_dir = input("Output directory (data split): ")
 
     out = data_preparation(duckdb_file_path, split_dir)
     for message in out:

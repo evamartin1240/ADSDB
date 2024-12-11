@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
+from collections import Counter
 
 
 def plot_clusters(genres, embeddings, cluster_labels, n_components=2):
@@ -103,6 +104,22 @@ def transform_ids(L):
 
     return transformed
 
+def transform_ids(data):
+    """
+    If an artist contains more than 1 genre cluster, assign to it the most common genre.
+    """
+    result = []
+    for item in data:
+        if isinstance(item, list):
+            if item:  # If the list is not empty...
+                most_common = Counter(item).most_common(1)[0][0] # Take the most common genre cluster (mode)
+                result.append(most_common)
+            else:  # If the list is empty
+                result.append(None)
+        else:
+            result.append(item)
+    return result
+
 def cluster_genres(genres):
 
     # Flatten the arrays and create a set of all unique strings
@@ -124,7 +141,7 @@ def cluster_genres(genres):
         new_genre_L = list(new_genre_L)
         new_genres.append(new_genre_L)
 
-    # Map the list
+    # Amend the artists that have multiple genre clusters
     transformed_new_genres = transform_ids(new_genres)
 
     plot_clusters(unique_genres, embeddings, labels, n_components=2)
@@ -162,6 +179,7 @@ def feature_generation(db_file, engineering_dir):
     # Connect to the new sandbox database
     con_generation= duckdb.connect(database=generation_duckdb_path)
 
+    con_generation.execute("DROP TABLE IF EXISTS feature_generation")
     con_generation.execute("CREATE TABLE feature_generation AS SELECT * FROM df")
 
     con_generation.close()
