@@ -4,3 +4,4 @@ matplotlib
 requests
 sentence_transformers
 tqdm
+seaborn
