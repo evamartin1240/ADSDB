@@ -23,7 +23,9 @@ python_files=(
     "./scripts/analytical_backbone/sandbox/sandbox.py"
     "./scripts/analytical_backbone/feature_engineering/feature_generation.py"
     "./scripts/analytical_backbone/feature_engineering/data_preparation.py"
-    "./scripts/analytical_backbone/model_generation/model_generation.py"
+    "./scripts/analytical_backbone/data_split/data_split.py"
+    "./scripts/analytical_backbone/modelling/model_generation.py"
+    "./scripts/analytical_backbone/modelling/external_validation.py"
 
 )
 
