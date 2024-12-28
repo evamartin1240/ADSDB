@@ -5,7 +5,7 @@ import duckdb
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-def data_split(db_file, split_dir):
+def data_split(db_file, split_dir, keyord):
     """
     Splits the data on internal and external validation sets
     """
@@ -31,7 +31,9 @@ def data_split(db_file, split_dir):
     if not os.path.exists(split_dir):
         os.makedirs(split_dir)
 
-    split_duckdb_path = os.path.join(split_dir, 'split.duckdb')
+    filename = "_".join([keyword, "split.duckdb"])
+
+    split_duckdb_path = os.path.join(split_dir, filename)
 
     # Connect to the new sandbox database
     con = duckdb.connect(database=split_duckdb_path)
@@ -51,12 +53,14 @@ def data_split(db_file, split_dir):
 
 if __name__ == "__main__":
 
-    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
-    split_dir = "~"
+    duckdb_file_path = "/home/maru/ADSDB/data/analytical_backbone/data_augmentation/augmentation.duckdb"
+    split_dir = "/home/maru/ADSDB/data/analytical_backbone/data_split/"
+    keyword = "augmented"
 
 #    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
 #    split_dir = input("Output directory (data split): ")
+#    keyword = input("Give a keyword to prepend to the output: ")
 
-    out = data_split(duckdb_file_path, split_dir)
+    out = data_split(duckdb_file_path, split_dir, keyword)
     for message in out:
         print(message)

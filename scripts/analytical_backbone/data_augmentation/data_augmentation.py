@@ -51,7 +51,7 @@ def data_augmentation(db_file, augmentation_dir):
             1: 211,  # For genre 1, keep it as is
             2: 75,   # For genre 2, keep 75 samples after augmentation
             3: 190,  # For genre 3, keep 190 samples after augmentation
-            4: 90,   # For genre 4, keep 50 samples after augmentation
+            4: 90,   # For genre 4, keep 90 samples after augmentation
             5: 50    # For genre 5, keep 50 samples after augmentation
         }
 
@@ -96,8 +96,8 @@ def data_augmentation(db_file, augmentation_dir):
 
 if __name__ == "__main__":
 
-    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
-    augmentation_dir = "~"
+    duckdb_file_path = "/home/maru/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
+    augmentation_dir = "/home/maru/ADSDB/data/analytical_backbone/data_augmentation/"
 
 #    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
 #    augmentation_dir = input("Output directory (Data Augmentation): ")

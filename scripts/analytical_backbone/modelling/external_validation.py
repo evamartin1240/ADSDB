@@ -63,7 +63,7 @@ def external_validation(db_file, model):
 
     return metrics, figures, figure_names
 
-def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir):
+def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir, keyword):
     """
     Wrapper to execute external_validation() on multiple models
     """
@@ -74,7 +74,7 @@ def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir):
         messages.append(f"Performing external validation with {model_name}...")
 
         # Load the model
-        model_fullpath = os.path.join(model_dir, f'{model_name}_model.pk1')
+        model_fullpath = os.path.join(model_dir, f'{keyword}_{model_name}_model.pk1')
         with open(model_fullpath, "rb") as file:
             model = pickle.load(file)
 
@@ -85,19 +85,19 @@ def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir):
 
         for i, fig in enumerate(figures):
             fig.suptitle(model_name)
-            figpath = os.path.join(figure_dir, f"{model_name}_{figure_names[i]}")
+            figpath = os.path.join(figure_dir, f"{keyword}_{model_name}_{figure_names[i]}")
             fig.savefig(figpath, dpi=300)
 
         messages.append(f"Figures saved in {figure_dir}")
 
-        metricspath = os.path.join(metrics_dir, f"{model_name}.yaml")
+        metricspath = os.path.join(metrics_dir, f"{keyword}_{model_name}.yaml")
         with open(metricspath, 'w') as file:
             yaml.dump(metrics, file, default_flow_style=False)
 
         messages.append(f"Metrics saved in {metrics_dir}")
 
-    fig = plot_model_metrics(models_to_use, metrics_dir)
-    figpath = os.path.join(figure_dir, "performance")
+    fig = plot_model_metrics(models_to_use, keyword, metrics_dir)
+    figpath = os.path.join(figure_dir, f"{keyword}_performance")
     fig.savefig(figpath, dpi=300)
 
     messages.append(f"Performance figure saved in {figure_dir}")
@@ -111,17 +111,20 @@ if __name__ == "__main__":
     #model_dir = input("Path to model directory (input): ")
     #metrics_dir = input("Path to metrics directory (output) ")
     #figure_dir = input("Path to figure directory (output) ")
+    #keyword = input("Give a keyword to identify inputs and outputs (should be the same keyword as the model creation): ")
 
-    duckdb_file_path="/home/maru/upc-mds/ADSDB/data/analytical_backbone/data_split/split.duckdb"
-    model_dir="/home/maru/upc-mds/ADSDB/models/"
-    metrics_dir="/home/maru/upc-mds/ADSDB/models/extval_metrics/"
-    figure_dir="/home/maru/upc-mds/ADSDB/models/extval_figures/"
+    duckdb_file_path="/home/maru/ADSDB/data/analytical_backbone/data_split/split.duckdb"
+    model_dir="/home/maru/ADSDB/models/"
+    metrics_dir="/home/maru/ADSDB/models/extval_metrics/"
+    figure_dir="/home/maru/ADSDB/models/extval_figures/"
+    keyword="augmented"
 
     out = external_validation_wrapper(
         db_file=duckdb_file_path,
         metrics_dir=metrics_dir,
         model_dir=model_dir,
-        figure_dir=figure_dir
+        figure_dir=figure_dir,
+        keyword=keyword
         )
 
     for message in out:

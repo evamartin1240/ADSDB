@@ -85,7 +85,7 @@ def get_model_instance(model_name):
     else:
         raise ValueError(f"Unsupported model: {model_name}")
 
-def model_generation_wrapper(db_file, model_dir, params_path, n_splits=5, n_iter=50):
+def model_generation_wrapper(db_file, model_dir, params_path, keyword, n_splits=5, n_iter=50):
     """
     Wrapper function to execute different regression models using RandomizedSearchCV
 
@@ -115,7 +115,7 @@ def model_generation_wrapper(db_file, model_dir, params_path, n_splits=5, n_iter
         messages.extend(out_messages)
 
         # Save the optimized model to a file
-        model_fullpath = os.path.join(model_dir, f'{model_name}_model.pk1')
+        model_fullpath = os.path.join(model_dir, f'{keyword}_{model_name}_model.pk1')
         with open(model_fullpath, 'wb') as file:
             pickle.dump(modelobj, file)
 
@@ -129,10 +129,12 @@ if __name__ == "__main__":
     duckdb_file_path = input("Path to DuckDB split database (input): ")
     params_path = input("Path to params.yaml (model parameters): ")
     model_dir = input("Path to model directory (output): ")
+    keyword = input("Give a keyword to name outputs: ")
 
     out = model_generation_wrapper(
         db_file=duckdb_file_path,
         model_dir=model_dir,
-        params_path=params_path
+        params_path=params_path,
+        keyword=keyword
         )
 

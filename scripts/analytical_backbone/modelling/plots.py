@@ -43,14 +43,14 @@ def plot_residuals(y_true, y_pred):
     return plt.gcf()
 
 
-def plot_model_metrics(models, metricsdir):
+def plot_model_metrics(models, keyword, metricsdir):
     import yaml
     import os
 
     data = []
 
     for model in models:
-        filename = os.path.join(f"{metricsdir}{model}.yaml")
+        filename = os.path.join(f"{metricsdir}{keyword}_{model}.yaml")
 
         # Read the YAML file for the current model
         with open(filename, 'r') as file:
@@ -69,7 +69,7 @@ def plot_model_metrics(models, metricsdir):
     # Plot all the metrics
     plt.figure(figsize=(10, 6))
     sns.barplot(x='Metric', y='Value', hue='Model', data=df, palette="plasma")
-    plt.title('Model Performance Comparison')
+    plt.title(f'Model Performance Comparison ({keyword})')
     plt.xticks(rotation=45)
     plt.tight_layout()
 
