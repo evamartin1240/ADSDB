@@ -13,6 +13,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from collections import Counter
+import streamlit as st
 
 
 def plot_clusters(genres, embeddings, cluster_labels, n_components=2):
@@ -57,6 +58,7 @@ def plot_clusters(genres, embeddings, cluster_labels, n_components=2):
         ax.set_zlabel("Dimension 3")
 
     plt.show()
+    st.pyplot(fig)
 
 def generate_embeddings_and_predict(genres, model = 'all-MiniLM-L6-v2', n_clusters = 6):
     """

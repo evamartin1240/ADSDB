@@ -25,6 +25,7 @@ def exploitation2sandbox(duckdb_file_path, sandbox_dir):
     # Connect to the new sandbox database
     con_sandbox = duckdb.connect(database=sandbox_duckdb_path)
 
+    con_sandbox.execute("DROP TABLE IF EXISTS sandbox")
     con_sandbox.execute("CREATE TABLE sandbox AS SELECT * FROM sandbox_df")
 
     con_sandbox.close()
@@ -39,6 +40,4 @@ if __name__ == "__main__":
     duckdb_file_path = input("Input DuckDB database (exploitation): ")
     sandbox_dir = input("Output directory (sandbox): ")
 
-    #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/exploitation/exploitation.duckdb"
-    #sandbox_dir = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox"
     exploitation2sandbox(duckdb_file_path, sandbox_dir)

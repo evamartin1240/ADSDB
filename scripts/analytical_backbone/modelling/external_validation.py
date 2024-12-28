@@ -9,6 +9,7 @@ import os
 import duckdb
 import pandas as pd
 from pprint import pprint
+import streamlit as st
 
 from plots import plot_y_test_y_pred, plot_residuals, plot_model_metrics
 
@@ -84,9 +85,10 @@ def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir, key
         messages.append(metrics)
 
         for i, fig in enumerate(figures):
-            fig.suptitle(model_name)
+            fig.suptitle(f"{model_name} ({keyword})")
             figpath = os.path.join(figure_dir, f"{keyword}_{model_name}_{figure_names[i]}")
             fig.savefig(figpath, dpi=300)
+            st.pyplot(fig)
 
         messages.append(f"Figures saved in {figure_dir}")
 
@@ -99,6 +101,7 @@ def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir, key
     fig = plot_model_metrics(models_to_use, keyword, metrics_dir)
     figpath = os.path.join(figure_dir, f"{keyword}_performance")
     fig.savefig(figpath, dpi=300)
+    st.pyplot(fig)
 
     messages.append(f"Performance figure saved in {figure_dir}")
 

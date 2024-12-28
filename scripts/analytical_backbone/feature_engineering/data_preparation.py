@@ -7,9 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-
-def outlier_handling(df):
-    pass
+import streamlit as st
 
 def visualize_outliers(df, columns = ['avg_min_price', 'avg_max_price']):
     """
@@ -25,7 +23,7 @@ def visualize_outliers(df, columns = ['avg_min_price', 'avg_max_price']):
 
     # Create a boxplot for valid columns
     if valid_columns:
-        plt.figure(figsize=(12, 6))
+        fig = plt.figure(figsize=(12, 6))
         sns.boxplot(data=df[valid_columns], orient='h')
         plt.title('Boxplot of Selected Columns')
         plt.xlabel('Values')
@@ -39,6 +37,8 @@ def visualize_outliers(df, columns = ['avg_min_price', 'avg_max_price']):
         plt.xticks(ticks=np.arange(x_min, x_max, step=(x_max - x_min) / 10))  # 10 ticks across the range
 
         plt.show()
+
+        st.pyplot(fig)
     else:
         print("No valid columns found for visualization.")
 
@@ -47,6 +47,8 @@ def outliers_iqr(df, columns = ['avg_min_price', 'avg_max_price']):
     """
     Detects the severe outliers (3 times the IQR) for the input columns.
     """
+
+    out = []
 
     # Ensure the specified columns column exist in the df
     for col in columns:
@@ -73,12 +75,12 @@ def outliers_iqr(df, columns = ['avg_min_price', 'avg_max_price']):
         
     # Print how many artists were removed and their names
     if outlier_artists:
-        print(f"{len(outlier_artists)} artists were detected as outliers.")
-        print(f"Outlier Artists: {', '.join(outlier_artists)}")
+        out.append(f"{len(outlier_artists)} artists were detected as outliers.")
+        out.append(f"Outlier Artists: {', '.join(outlier_artists)}")
     else:
-        print("No artists were detected as outliers.")
+        out.append("No artists were detected as outliers.")
 
-    return df_cleaned
+    return out
 
 def visualize_corrmatrix(dataframe, ignore=["artists"]):
     """
@@ -92,10 +94,11 @@ def visualize_corrmatrix(dataframe, ignore=["artists"]):
 
     corr_matrix = numeric_cols.corr()
 
-    plt.figure(figsize=(10, 8))
+    fig = plt.figure(figsize=(10, 8))
     sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar=True, vmin=-1, vmax=1)
     plt.title("Correlation Heatmap")
     plt.show()
+    st.pyplot(fig)
 
 
 def data_preparation(db_file, engineering_dir):
@@ -119,7 +122,7 @@ def data_preparation(db_file, engineering_dir):
 
     output.append(f"Price data imputed.")
 
-    df_tmp = outliers_iqr(df)
+    output.extend(outliers_iqr(df))
 
     df = df[df['genres'].apply(lambda x: len(x) > 0)] # remove the artists that do not have any genre
 

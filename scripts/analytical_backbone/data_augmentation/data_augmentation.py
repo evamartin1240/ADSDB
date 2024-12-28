@@ -5,6 +5,8 @@ from imblearn.over_sampling import SMOTE
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import streamlit as st
+import numpy as np
 
 def plot_genre_pie_chart(df):
     if 'genres' not in df.columns:
@@ -12,11 +14,31 @@ def plot_genre_pie_chart(df):
 
     genre_counts = df['genres'].value_counts()
 
-    plt.figure(figsize=(8, 8))
+    fig = plt.figure(figsize=(8, 8))
     genre_counts.plot(kind='pie', autopct='%1.1f%%', startangle=90, cmap='Set3')
     plt.title('Distribution of Genres')
     plt.ylabel('')  # Hide the y-label
-    plt.show()
+
+    return fig
+
+def create_sampling_strategy(df, ratio = 0.25):
+
+    genre_counts = df['genres'].value_counts()
+
+    genre_counts_df = genre_counts.reset_index()
+    genre_counts_df.columns = ['cluster', 'count']
+
+    maxnum = genre_counts_df['count'].max()
+
+    genre_counts_df['adjusted_count'] = genre_counts_df['count'] + (maxnum - genre_counts_df['count']) * ratio
+
+
+    adjusted_dict = {
+        row['cluster'] : int(np.floor(row['adjusted_count']))
+        for _, row in genre_counts_df.iterrows()
+    }
+
+    return adjusted_dict
 
 
 def data_augmentation(db_file, augmentation_dir):
@@ -32,7 +54,14 @@ def data_augmentation(db_file, augmentation_dir):
     # Load the data
     df = conn.execute("SELECT * FROM feature_generation").df()
 
-    plot_genre_pie_chart(df)
+    sampling_strategy = create_sampling_strategy(df)
+
+    fig = plot_genre_pie_chart(df)
+
+    fig.suptitle("Before SMOTE")
+
+    plt.show()
+    st.pyplot(fig)
 
     conn.close()
 
@@ -46,15 +75,6 @@ def data_augmentation(db_file, augmentation_dir):
     X = df[numeric_cols]
     y = df['genres']
 
-    sampling_strategy = {
-            0: 100,  # For genre 0, keep 100 samples after augmentation
-            1: 211,  # For genre 1, keep it as is
-            2: 75,   # For genre 2, keep 75 samples after augmentation
-            3: 190,  # For genre 3, keep 190 samples after augmentation
-            4: 90,   # For genre 4, keep 90 samples after augmentation
-            5: 50    # For genre 5, keep 50 samples after augmentation
-        }
-
     # Perform SMOTE
     smote = SMOTE(random_state=123, sampling_strategy = sampling_strategy)
     X_resampled, y_resampled = smote.fit_resample(X, y)
@@ -63,7 +83,12 @@ def data_augmentation(db_file, augmentation_dir):
     df_resampled = pd.DataFrame(X_resampled, columns=numeric_cols)
     df_resampled['genres'] = y_resampled
 
-    plot_genre_pie_chart(df_resampled)
+    fig = plot_genre_pie_chart(df_resampled)
+
+    fig.suptitle("After SMOTE")
+
+    plt.show()
+    st.pyplot(fig)
 
     # Generate unique identifiers for augmented 'artist' values
     original_artist_count = len(df)
@@ -96,11 +121,8 @@ def data_augmentation(db_file, augmentation_dir):
 
 if __name__ == "__main__":
 
-    duckdb_file_path = "/home/maru/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
-    augmentation_dir = "/home/maru/ADSDB/data/analytical_backbone/data_augmentation/"
-
-#    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
-#    augmentation_dir = input("Output directory (Data Augmentation): ")
+    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
+    augmentation_dir = input("Output directory (Data Augmentation): ")
 
     out = data_augmentation(duckdb_file_path, augmentation_dir)
     for message in out:

@@ -15,7 +15,7 @@ def plot_y_test_y_pred(y_test, y_pred):
     df = pd.DataFrame({'y_test': y_test, 'y_pred': y_pred})
 
     # Plot using Seaborn scatterplot
-    plt.figure(figsize=(8, 6))
+    fig = plt.figure(figsize=(8, 6))
     sns.scatterplot(data=df, x='y_test', y='y_pred', color='blue', alpha=0.6)
 
     # Add line for perfect predictions

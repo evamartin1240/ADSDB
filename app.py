@@ -8,6 +8,12 @@ sys.path.insert(0, './scripts/formatted')
 sys.path.insert(0, './scripts/trusted')
 sys.path.insert(0, './scripts/trusted/generic_data_quality')
 sys.path.insert(0, './scripts/exploitation')
+sys.path.insert(0, './scripts/analytical_backbone/sandbox')
+sys.path.insert(0, './scripts/analytical_backbone/feature_engineering')
+sys.path.insert(0, './scripts/analytical_backbone/data_augmentation')
+sys.path.insert(0, './scripts/analytical_backbone/data_split')
+sys.path.insert(0, './scripts/analytical_backbone/modelling')
+sys.path.insert(0, './scripts/analytical_backbone/data_augmentation')
 
 
 # Import functions from scripts directory
@@ -28,6 +34,15 @@ from profiling_trusted import ticketmaster_profiling_app_trusted
 from trusted2exploitation import trusted2exploit
 from trusted2exploitation import add_tables_to_duckdb
 from profiling_exploitation import profiling_explo_app
+from sandbox import exploitation2sandbox
+from feature_generation import feature_generation
+from data_preparation import data_preparation
+from data_split import data_split
+from model_generation import model_generation_wrapper
+from external_validation import external_validation_wrapper
+from data_augmentation import data_augmentation
+
+
 
 # APP
 
@@ -246,3 +261,209 @@ duckdb_file_path = st.text_input("Input DuckDB database (trusted):","./data/expl
 
 if st.button("Profile exploitation database"):
     profiling_explo_app(duckdb_file_path)
+
+######### PART 2: ANALYTICAL BACKBONE #########
+
+st.markdown("<h1 style='color: #155a8a;'>Analytical Backbone</h1>", unsafe_allow_html=True)
+
+####### Step 8: Exploitation to Sandbox #######
+
+st.markdown("<h3 style='color: #1f77b4;'>8. Exploitation to Sandbox</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (exploitation):","./data/exploitation/exploitation.duckdb" , key="step8a")
+sandbox_dir = st.text_input("Output data path (sandbox):","./data/analytical_backbone/sandbox", key="step8b")
+
+if st.button("Pass from Exploitation Zone to the Sandbox"):
+    if duckdb_file_path and sandbox_dir:
+        # Call the  function exploitation2sandbox(
+        exploitation2sandbox(duckdb_file_path, sandbox_dir)
+        st.success("Sandbox database successfully created.")
+    else:
+        st.error("Please provide both paths.")
+
+
+####### Step 9: Feature Engineering #######
+
+st.markdown("<h3 style='color: #1f77b4;'>9. Feature Engineering</h3>", unsafe_allow_html=True)
+
+engineering_dir = st.text_input("Output data path (feature engineering):","./data/analytical_backbone/feature_engineering" , key="step9outdir")
+
+tab1, tab2 = st.tabs(["Data Preparation", "Feature Geneartion"])
+
+with tab1:
+    # Input field for the DuckDB database file path
+    db_file_path = st.text_input("Input DuckDB database (sandbox):","./data/analytical_backbone/sandbox/sandbox.duckdb" , key="step9dataprepa")
+    # Button for data preparation
+    if st.button("Run Data Preparation"):
+        if db_file_path:
+            try:
+                # consistent formatting function
+                output_messages = data_preparation(db_file_path, engineering_dir)
+                st.success("Data preparation process completed successfully.")
+                for message in output_messages:
+                    st.write(message)
+            except Exception as e:
+                st.error(f"An error occurred during data preparation: {e}")
+        else:
+            st.error("Please provide a valid DuckDB file path.")
+
+
+with tab2:
+    # Input field for the DuckDB database file path
+    db_file_path = st.text_input("Input DuckDB database (data preparation):","./data/analytical_backbone/feature_engineering/data_preparation.duckdb" , key="step9featgena")
+
+    if st.button("Run Feature Generation"):
+        if db_file_path:
+            try:
+                # feature generation function
+                output_messages = feature_generation(db_file_path, engineering_dir)
+                st.success("Feature generation completed successfully.")
+                for message in output_messages: # print each message
+                    st.write(message)
+            except Exception as e:
+                st.error(f"An error occurred during feature generation: {e}")
+        else:
+            st.error("Please provide a valid DuckDB file path.")
+
+####### Step 10: Data Split #######
+
+st.markdown("<h3 style='color: #1f77b4;'>10. Data Split</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the data split directory
+duckdb_file_path = st.text_input("Input DuckDB database (feature generation):","./data/analytical_backbone/feature_engineering/feature_generation.duckdb" , key="step10a")
+split_dir = st.text_input("Output data path (data split):","./data/analytical_backbone/data_split", key="step10b")
+keyword = st.text_input("Enter a keyword to identify the data uniquely:", "default",key="step10c")
+
+if st.button("Split the data"):
+    if duckdb_file_path and split_dir:
+        # Call the  function data_split()
+        data_split(duckdb_file_path, split_dir, keyword)
+        st.success("Data split database successfully created.")
+    else:
+        st.error("Please provide both paths.")
+
+####### Step 11: Model Generation #######
+
+st.markdown("<h3 style='color: #1f77b4;'>11. Model Generation</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the model directory
+duckdb_file_path = st.text_input("Input DuckDB database (split data):",f"./data/analytical_backbone/data_split/{keyword}_split.duckdb" , key="step11a")
+model_dir = st.text_input("Output model directory:","./models", key="step11b")
+params_path = st.text_input("Input model parameters:","./params.yaml", key="step11c")
+keyword = st.text_input("Enter a keyword to identify the data uniquely:", keyword, key="step11d")
+
+if st.button("Create the models"):
+    if duckdb_file_path and model_dir and params_path:
+        # Call the  function model_generation_wrapper()
+        model_generation_wrapper(duckdb_file_path, model_dir, params_path, keyword)
+        st.success("Models successfully created.")
+    else:
+        st.error("Please provide the three paths.")
+
+####### Step 12: External Validation #######
+
+st.markdown("<h3 style='color: #1f77b4;'>12. External Validation</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the model directory
+duckdb_file_path = st.text_input("Input DuckDB database (split data):",f"./data/analytical_backbone/data_split/{keyword}_split.duckdb" , key="step12a")
+model_dir = st.text_input("Output model directory:","./models", key="step12b")
+keyword = st.text_input("Enter a keyword to identify the data uniquely:", keyword, key="step12c")
+metrics_dir = st.text_input("Directory to store the external validation metrics:", "./models/extval_metrics/", key="step12d")
+figure_dir = st.text_input("Directory to store the external validation figures :", "./models/extval_figures/", key="step1de")
+
+if st.button("Perform External Validation"):
+    if duckdb_file_path and model_dir and metrics_dir and figure_dir:
+        # Call the function external_validation_wrapper()
+        out = external_validation_wrapper(
+        db_file=duckdb_file_path,
+        metrics_dir=metrics_dir,
+        model_dir=model_dir,
+        figure_dir=figure_dir,
+        keyword=keyword
+        )
+
+        st.success("External validation performed.")
+    else:
+        st.error("Please provide the four paths.")
+
+######### ADVANCED TOPIC #########
+
+st.markdown("<h2 style='color: #155a8a;'>Advanced Topic: Data Augmentation</h1>", unsafe_allow_html=True)
+
+###### Step 13: Data Augmentation ########
+
+st.markdown("<h3 style='color: #1f77b4;'>13. Data Augmentation with SMOTE</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the trusted directory
+duckdb_file_path = st.text_input("Input DuckDB database (feature generation):","./data/analytical_backbone/feature_engineering/feature_generation.duckdb" , key="step13a")
+augmentation_dir = st.text_input("Output data path (data augmentation):","./data/analytical_backbone/data_augmentation", key="step13b")
+
+if st.button("Perform Data Augmentation with SMOTE"):
+    if duckdb_file_path and augmentation_dir:
+        # Call the  function data_augmentation(
+        data_augmentation(duckdb_file_path, augmentation_dir)
+        st.success("Data augmentation database successfully created.")
+    else:
+        st.error("Please provide both paths.")
+
+####### Step 14: Data Split (augmented) #######
+
+st.markdown("<h3 style='color: #1f77b4;'>14. Data Split (Augmented)</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the data split directory
+duckdb_file_path = st.text_input("Input DuckDB database (data augmentation):","./data/analytical_backbone/data_augmentation/augmentation.duckdb" , key="step14a")
+split_dir = st.text_input("Output data path (data split):","./data/analytical_backbone/data_split", key="step14b")
+keyword_aug = st.text_input("Enter a keyword to identify the data uniquely:", "augmented",key="step14c")
+
+if st.button("Split the data (augmented)"):
+    if duckdb_file_path and split_dir:
+        # Call the  function data_split()
+        data_split(duckdb_file_path, split_dir, keyword_aug)
+        st.success("Data split database successfully created.")
+    else:
+        st.error("Please provide both paths.")
+
+####### Step 15: Model Generation (augmented) #######
+
+st.markdown("<h3 style='color: #1f77b4;'>15. Model Generation (augmented)</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the model directory
+duckdb_file_path = st.text_input("Input DuckDB database (split data):",f"./data/analytical_backbone/data_split/{keyword_aug}_split.duckdb" , key="step15a")
+model_dir = st.text_input("Output model directory:","./models", key="step15b")
+params_path = st.text_input("Input model parameters:","./params.yaml", key="step15c")
+keyword_aug = st.text_input("Enter a keyword to identify the data uniquely:", keyword_aug, key="step15d")
+
+if st.button("Create the models (augmented)"):
+    if duckdb_file_path and model_dir and params_path:
+        # Call the  function model_generation_wrapper()
+        model_generation_wrapper(duckdb_file_path, model_dir, params_path, keyword_aug)
+        st.success("Models successfully created.")
+    else:
+        st.error("Please provide the three paths.")
+
+####### Step 16: External Validation (augmented) #######
+
+st.markdown("<h3 style='color: #1f77b4;'>16. External Validation (Augmented)</h3>", unsafe_allow_html=True)
+
+# Input fields for the DuckDB file path and the model directory
+duckdb_file_path = st.text_input("Input DuckDB database (split data):",f"./data/analytical_backbone/data_split/{keyword_aug}_split.duckdb" , key="step16a")
+model_dir = st.text_input("Output model directory:","./models", key="step16b")
+keyword_aug = st.text_input("Enter a keyword to identify the data uniquely:", keyword_aug, key="step16c")
+metrics_dir = st.text_input("Directory to store the external validation metrics:", "./models/extval_metrics/", key="step16d")
+figure_dir = st.text_input("Directory to store the external validation figures :", "./models/extval_figures/", key="step16e")
+
+if st.button("Perform External Validation (augmented)"):
+    if duckdb_file_path and model_dir and metrics_dir and figure_dir:
+        # Call the function external_validation_wrapper()
+        out = external_validation_wrapper(
+        db_file=duckdb_file_path,
+        metrics_dir=metrics_dir,
+        model_dir=model_dir,
+        figure_dir=figure_dir,
+        keyword=keyword_aug
+        )
+
+        st.success("External validation performed.")
+    else:
+        st.error("Please provide the four paths.")

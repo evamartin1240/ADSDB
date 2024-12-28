@@ -5,7 +5,7 @@ import duckdb
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-def data_split(db_file, split_dir, keyord):
+def data_split(db_file, split_dir, keyword):
     """
     Splits the data on internal and external validation sets
     """
