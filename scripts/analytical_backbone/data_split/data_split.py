@@ -5,7 +5,7 @@ import duckdb
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-def data_preparation(db_file, split_dir):
+def data_split(db_file, split_dir):
     """
     Splits the data on internal and external validation sets
     """
@@ -19,6 +19,8 @@ def data_preparation(db_file, split_dir):
     df = conn.execute("SELECT * FROM feature_generation").df()
 
     conn.close()
+
+    print(df["genres"].value_counts())
 
     # 80/20 Split
     train_df, extval_df = train_test_split(df, test_size=0.2, random_state=123)
@@ -49,9 +51,12 @@ def data_preparation(db_file, split_dir):
 
 if __name__ == "__main__":
 
-    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
-    split_dir = input("Output directory (data split): ")
+    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/feature_engineering/feature_generation.duckdb"
+    split_dir = "~"
 
-    out = data_preparation(duckdb_file_path, split_dir)
+#    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
+#    split_dir = input("Output directory (data split): ")
+
+    out = data_split(duckdb_file_path, split_dir)
     for message in out:
         print(message)

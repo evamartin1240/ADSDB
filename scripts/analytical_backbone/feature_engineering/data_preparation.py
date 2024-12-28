@@ -80,6 +80,23 @@ def outliers_iqr(df, columns = ['avg_min_price', 'avg_max_price']):
 
     return df_cleaned
 
+def visualize_corrmatrix(dataframe, ignore=["artists"]):
+    """
+    Plots a correlation heatmap
+    """
+
+    # Filter out the columns to ignore
+    cols_to_include = [col for col in dataframe.columns if col not in ignore]
+    # Keep only numeric columns
+    numeric_cols = dataframe[cols_to_include].select_dtypes(include=["number"])
+
+    corr_matrix = numeric_cols.corr()
+
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar=True, vmin=-1, vmax=1)
+    plt.title("Correlation Heatmap")
+    plt.show()
+
 
 def data_preparation(db_file, engineering_dir):
     """
@@ -111,6 +128,8 @@ def data_preparation(db_file, engineering_dir):
     visualize_outliers(df)
 
     visualize_outliers(df, columns=["followers"])
+
+    visualize_corrmatrix(df, ignore=["artist"])
 
     # Create the data preparation directory if it doesn't exist
     if not os.path.exists(engineering_dir):
