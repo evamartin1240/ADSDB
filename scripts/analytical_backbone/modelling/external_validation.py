@@ -110,17 +110,11 @@ def external_validation_wrapper(db_file, metrics_dir, model_dir, figure_dir, key
 
 
 if __name__ == "__main__":
-    #duckdb_file_path = input("Path to DuckDB split database (input): ")
-    #model_dir = input("Path to model directory (input): ")
-    #metrics_dir = input("Path to metrics directory (output) ")
-    #figure_dir = input("Path to figure directory (output) ")
-    #keyword = input("Give a keyword to identify inputs and outputs (should be the same keyword as the model creation): ")
-
-    duckdb_file_path="/home/maru/ADSDB/data/analytical_backbone/data_split/split.duckdb"
-    model_dir="/home/maru/ADSDB/models/"
-    metrics_dir="/home/maru/ADSDB/models/extval_metrics/"
-    figure_dir="/home/maru/ADSDB/models/extval_figures/"
-    keyword="augmented"
+    duckdb_file_path = input("Path to DuckDB split database (input): ")
+    model_dir = input("Path to model directory (input): ")
+    metrics_dir = input("Path to metrics directory (output) ")
+    figure_dir = input("Path to figure directory (output) ")
+    keyword = input("Give a keyword to identify inputs and outputs (should be the same keyword as the model creation): ")
 
     out = external_validation_wrapper(
         db_file=duckdb_file_path,
