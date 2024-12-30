@@ -14,6 +14,8 @@ import duckdb
 import matplotlib.pyplot as plt
 import yaml
 
+models_to_use = ["LinearRegression", "GradientBoostingRegressor", "RandomForestRegressor"]
+
 def model_generation(db_file, model_dir, regressor, param_grid, n_splits=5, n_iter=50):
     """
     Generalized function to perform model training and hyperparameter tuning.
@@ -97,7 +99,7 @@ def model_generation_wrapper(db_file, model_dir, params_path, keyword, n_splits=
     - n_iter: Number of random combinations for RandomizedSearchCV
     - param_file: YAML file containing parameter grids
     """
-    for model_name in ["LinearRegression", "GradientBoostingRegressor", "RandomForestRegressor"]:
+    for model_name in models_to_use:
 
         messages = []
 

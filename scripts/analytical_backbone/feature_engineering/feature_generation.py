@@ -65,6 +65,7 @@ def generate_embeddings_and_predict(genres, model = 'all-MiniLM-L6-v2', n_cluste
     Generate word embeddings for a list of genres using the model provided
     and cluster them with K-means
     """
+
     model = SentenceTransformer(model)
 
     embeddings = model.encode(genres)
@@ -146,6 +147,15 @@ def cluster_genres(genres):
     # Amend the artists that have multiple genre clusters
     transformed_new_genres = transform_ids(new_genres)
 
+    # Count occurrences of least common cluster
+    counter = Counter(transformed_new_genres)
+    least_common_cluster, least_common_count = min(counter.items(), key=lambda x: x[1])
+
+    if least_common_count < 6:
+        print(f"Warning: The least common cluster ({least_common_cluster}) has only {least_common_count} instances, which will raise errors in the Data Augmentation section. This is due to the uncertainty in the embedding model. Please, re-start the app and try again if you would like to avoid the error.")
+        st.warning(f"Warning: The least common cluster ({least_common_cluster}) has only {least_common_count} instances, which will raise errors in the Data Augmentation section. This is due to the uncertainty in the embedding model. Please, re-start the app and try again if you would like to avoid the error.", icon="⚠️")
+
+
     plot_clusters(unique_genres, embeddings, labels, n_components=2)
 
     return transformed_new_genres
@@ -195,7 +205,6 @@ def feature_generation(db_file, engineering_dir):
 if __name__ == "__main__":
     duckdb_file_path = input("Path to DuckDB data preparation database (input): ")
     engineering_dir = input("Output directory (feature engineering): ")
-    #duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb"
 
     out = feature_generation(duckdb_file_path, engineering_dir)
     for message in out:

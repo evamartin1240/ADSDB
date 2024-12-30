@@ -26,7 +26,10 @@ python_files=(
     "./scripts/analytical_backbone/data_split/data_split.py"
     "./scripts/analytical_backbone/modelling/model_generation.py"
     "./scripts/analytical_backbone/modelling/external_validation.py"
-
+    "./scripts/analytical_backbone/data_augmentation/data_augmentation.py"
+    "./scripts/analytical_backbone/data_split/data_split.py"
+    "./scripts/analytical_backbone/modelling/model_generation.py"
+    "./scripts/analytical_backbone/modelling/external_validation.py"
 )
 
 

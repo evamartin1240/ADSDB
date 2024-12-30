@@ -156,11 +156,8 @@ def data_preparation(db_file, engineering_dir):
 
 if __name__ == "__main__":
 
-    #duckdb_file_path = input("Path to DuckDB sandbox (input): ")
-    #engineering_dir = input("Output directory (feature engineering): ")
-
-    duckdb_file_path = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/sandbox/sandbox.duckdb"
-    engineering_dir = "/home/maru/upc-mds/ADSDB/data/analytical_backbone/feature_engineering/"
+    duckdb_file_path = input("Path to DuckDB sandbox (input): ")
+    engineering_dir = input("Output directory (feature engineering): ")
 
     out = data_preparation(duckdb_file_path, engineering_dir)
     for message in out:

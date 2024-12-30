@@ -77,7 +77,15 @@ def data_augmentation(db_file, augmentation_dir):
 
     # Perform SMOTE
     smote = SMOTE(random_state=123, sampling_strategy = sampling_strategy)
-    X_resampled, y_resampled = smote.fit_resample(X, y)
+
+    try:
+        X_resampled, y_resampled = smote.fit_resample(X, y)
+    except ValueError as e:
+        if "n_neighbors" in str(e) and "n_samples_fit" in str(e):
+            print(f"Error: The number of neighbors specified for SMOTE ({smote.k_neighbors}) is greater than the number of samples in the minority class. This is due to the non-determinism in the genre clustering phase, so this error only occurs rarely. Please, re-start the app to clear any caches and re-run the analytical backbone.")
+            st.error(f"Error: The number of neighbors specified for SMOTE ({smote.k_neighbors}) is greater than the number of samples in the minority class. This is due to the non-determinism in the genre clustering phase, so this error only occurs rarely. Please, re-start the app to clear any caches and re-run the analytical backbone.", icon="🚨")
+        else:
+            raise e
 
     # Create a DataFrame from the resampled data
     df_resampled = pd.DataFrame(X_resampled, columns=numeric_cols)
