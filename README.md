@@ -1,14 +1,16 @@
 # ADSDB <a href="https://github.com/evamartin1240/ADSDB"><img src="others/spotify.png" align="right" height="25" /></a> <a href="https://github.com/evamartin1240/ADSDB"><img src="others/ticketmaster.png" align="right" height="20" /></a>
 
-## Data Management Backbone
+## Data Management Backbone & Analytical Backbone
 
-This repository contains the data management backbone for our project. 
+This repository contains the data management backbone and analytical backbone for our project. 
 
 We've implemented two methods for running the operations environment:
 
-1. **Web Interface**: Access the pipeline through our [web interface](https://evamartin1240-adsdb-app-ofogzr.streamlit.app/).
+1. **Web Interface**: Access the pipeline through our [web interface](https://evamartin1240-adsdb-app-ofogzr.streamlit.app/), or host it locally.
 
 2. **Command Line (CLI)**: Run all operations directly from the terminal.
+
+> **Note:** Due to limits in the Streamlit Community Cloud free plan, it is possible to encounter issues using the app online. If you encounter any issues, we advise you clone this repo and host the application locally. To do so, simply set up your Python environment as shown below and run `streamlit run app.py`.
 
 ## Web Interface
 
