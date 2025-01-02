@@ -53,7 +53,7 @@ def data_split(db_file, split_dir, keyword):
 
 if __name__ == "__main__":
 
-    duckdb_file_path = input("Path to DuckDB feature generation database (input): ")
+    duckdb_file_path = input("Path to DuckDB feature generation/data augmentation database (input): ")
     split_dir = input("Output directory (data split): ")
     keyword = input("Give a keyword to prepend to the output: ")
 
