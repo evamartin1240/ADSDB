@@ -9,8 +9,6 @@ setlocal
 
 call ./venv/Scripts/activate.bat
 
-echo 1
-
 :: Check for flags and jump to the appropriate section
 if "%~1"=="--skip-ingestion" goto skip_ingestion
 if "%~1"=="--analysis-only" goto analysis_only
@@ -40,7 +38,6 @@ set python_files=^
 goto run_scripts
 
 :skip_ingestion
-echo 2
 set python_files=^
 ./scripts/landing/raw2temporal.py ^
 ./scripts/landing/temporal2persistent.py ^
@@ -63,7 +60,6 @@ set python_files=^
 goto run_scripts
 
 :analysis_only
-echo 3
 set python_files=^
 ./scripts/analytical_backbone/sandbox/sandbox.py ^
 ./scripts/analytical_backbone/feature_engineering/data_preparation.py ^
@@ -77,6 +73,10 @@ set python_files=^
 ./scripts/analytical_backbone/modelling/external_validation.py
 
 :run_scripts
+
+:: New command line with system metrics
+start cmd /k "tasklist"
+
 :: Run each Python script
 for %%f in (%python_files%) do (
     echo Running %%f...
